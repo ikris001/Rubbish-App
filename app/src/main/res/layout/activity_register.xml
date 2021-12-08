@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brown">
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/brown" />
+
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginRight="-1dp"
+        android:text="Home"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/brown" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_margin="10dp"
+        android:hint="Username"
+        android:textColor="@color/black"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textColorHint="@color/black"
+        android:background="@color/brown"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username"
+        android:layout_margin="10dp"
+        android:hint="Password"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:background="@color/brown"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/enterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:text="Enter"
+        android:backgroundTint="@color/brown"
+        android:textColor="@color/black"
+        android:layout_alignRight="@id/password"
+        android:layout_margin="10dp" />
+
+    <TextView
+        android:id="@+id/registerTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/enterButton"
+        android:layout_margin="10dp"
+        android:text="If you do not have an account"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/registerHereTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/registerTv"
+        android:text="register here"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/brown"
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true"/>
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
