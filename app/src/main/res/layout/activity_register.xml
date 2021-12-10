@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brown">
+    android:background="@color/brown"
+    tools:context=".LoginActivity">
 
     <Button
         android:id="@+id/backButton"
@@ -28,9 +29,15 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="233dp"
+        android:layout_marginEnd="117dp"
+        android:layout_marginRight="117dp"
+        android:gravity="center_vertical"
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
@@ -38,27 +45,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
-        android:layout_margin="10dp"
-        android:hint="Username"
-        android:textColor="@color/black"
-        android:padding="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/brown"
         android:gravity="center"
-        android:textColorHint="@color/black"
-        android:background="@color/brown"/>
+        android:hint="Username"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/material_on_background_emphasis_high_type" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/username"
-        android:layout_margin="10dp"
-        android:hint="Password"
-        android:padding="5dp"
-        android:gravity="center"
-        android:textColorHint="@color/black"
-        android:textColor="@color/black"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/brown"
-        />
+        android:gravity="center"
+        android:hint="Password"
+        android:hintTextColor="#FFCDD2"
+        android:padding="20dp"
+        android:textColorHint="@color/material_on_surface_emphasis_high_type" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/enterButton"
@@ -82,7 +98,7 @@
         android:layout_centerHorizontal="true"/>
 
     <Button
-        android:id="@+id/registerHereTv"
+        android:id="@+id/registerHereButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/registerTv"
@@ -91,13 +107,6 @@
         android:backgroundTint="@color/brown"
         android:layout_margin="10dp"
         android:layout_centerHorizontal="true"/>
-
-
-
-
-
-
-
 
 
 </RelativeLayout>
