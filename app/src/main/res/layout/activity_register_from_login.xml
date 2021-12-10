@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFDD0"
+    tools:context=".RegisterFromLoginActivity">
+
+    <Button
+        android:id="@+id/backButtonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/brown" />
+
+    <Button
+        android:id="@+id/homeButtonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginRight="-1dp"
+        android:text="@string/home"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/brown" />
+
+    <ImageView
+        android:id="@+id/imageViewRegister"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="156dp"
+        android:layout_marginLeft="156dp"
+        android:layout_marginTop="81dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginRight="142dp"
+        android:contentDescription="@string/todo"
+        android:gravity="center_vertical"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/usernameRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageViewRegister"
+        android:layout_margin="10dp"
+        android:hint="@string/username"
+        android:padding="20dp"
+        android:gravity="center"
+        android:textColorHint="@color/material_on_surface_emphasis_high_type"/>
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usernameRegister"
+        android:layout_margin="10dp"
+        android:hint="@string/Email"
+        android:padding="20dp"
+        android:gravity="center"
+        android:textColorHint="@color/material_on_surface_emphasis_high_type"/>
+
+    <EditText
+        android:id="@+id/passwordRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:hint="@string/password"
+        android:padding="20dp"
+        android:textColorHint="@color/material_on_surface_emphasis_high_type" />
+
+    <EditText
+        android:id="@+id/confirmPasswordRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordRegister"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:hint="@string/confirm_password"
+        android:padding="20dp"
+        android:textColorHint="@color/material_on_surface_emphasis_high_type" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/enterButtonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/confirmPasswordRegister"
+        android:text="@string/enter"
+        android:backgroundTint="@color/brown"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        android:layout_alignEnd="@id/confirmPasswordRegister"
+        android:layout_alignRight="@id/confirmPasswordRegister"/>
+
+    <TextView
+        android:id="@+id/mainRegisterTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/enterButtonRegister"
+        android:layout_margin="10dp"
+        android:text="@string/if_you_already_have_an_account"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/registerHereTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mainRegisterTv"
+        android:text="@string/login_here"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/brown"
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>
