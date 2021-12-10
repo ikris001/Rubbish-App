@@ -10,31 +10,27 @@
         android:id="@+id/newBioField"
         android:layout_width="335dp"
         android:layout_height="47dp"
+        android:layout_marginBottom="8dp"
         android:hint="New Description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileImg3"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintBottom_toTopOf="@+id/submitBtn"
+        tools:layout_editor_absoluteX="38dp" />
 
     <Button
         android:id="@+id/submitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="252dp"
+        android:layout_marginBottom="216dp"
         android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/DeleteBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.317"
+        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/profileImg3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="141dp"
         tools:layout_editor_absoluteY="137dp"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -43,34 +39,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancel"
-        tools:layout_editor_absoluteX="215dp"
-        tools:layout_editor_absoluteY="432dp" />
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="403dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/newUsernameField"
         android:layout_width="335dp"
         android:layout_height="47dp"
+        android:layout_marginTop="20dp"
         android:hint="New Username"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/newBioField"
         app:layout_constraintTop_toBottomOf="@+id/profileImg3"
-        app:layout_constraintVertical_bias="0.052" />
+        tools:layout_editor_absoluteX="38dp" />
 
     <Button
         android:id="@+id/editPictureBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:text="Edit"
-        tools:layout_editor_absoluteX="285dp"
+        app:layout_constraintStart_toEndOf="@+id/profileImg3"
         tools:layout_editor_absoluteY="217dp" />
 
     <Button
         android:id="@+id/DeleteBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="Delete Account"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="667dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
