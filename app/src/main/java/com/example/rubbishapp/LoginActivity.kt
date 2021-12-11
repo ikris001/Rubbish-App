@@ -1,17 +1,10 @@
 package com.example.rubbishapp
 
-import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.datepicker.MaterialDatePicker.Builder.datePicker
 import kotlinx.android.synthetic.main.activity_register.*
-import java.text.SimpleDateFormat
-import java.util.*
-
-
 
 
 
@@ -20,13 +13,19 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-    enterButton.setOnClickListener {
-       var status =  if (username.text.toString().equals("Rubbish") &&
-            password.text.toString().equals("Rubbis")) "Logged in Successfully" else "Log in fail"
+        // created temporary username and password for user to log in
+        enterButton.setOnClickListener {
+            var status =  if (username.text.toString().equals("Rubbish") &&
+            password.text.toString().equals("Rubbish")) "Logged in Successfully" else "Log in fail"
         Toast.makeText(this, "status", Toast.LENGTH_SHORT).show()
 
-
     }
+        // switch between activities register and login
+        registerHereButton.setOnClickListener { val intent = Intent(this, RegisterFromLoginActivity::class.java)
+            startActivity(intent)
+        }
+
+
 
     }
 }
