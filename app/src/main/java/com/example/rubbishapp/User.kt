@@ -3,7 +3,7 @@ package com.example.rubbishapp
 class User(_id:Int, _username:String, _password:String, _email:String,
            _profilePictureAddress:String, _bio:String, _role:String, _score:Int)
 {
-    // Declaration of all variable and their getter and setter methods
+    // Declaration of all attributes and their getter and setter methods
     private var id:Int
         get() = this.id
         set(newId) {
