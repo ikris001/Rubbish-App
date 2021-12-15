@@ -1,10 +1,10 @@
 package com.example.rubbishapp
 
-class User(_userId:String, _username:String, _password:String, _email:String,
+class User(_userId:Int, _username:String, _password:String, _email:String,
            _profilePictureAddress:String, _bio:String, _role:String, _score:Int)
 {
     // Declaration of all variable and their getter and setter methods
-    var userId:String
+    var userId:Int
         get() = this.userId
         set(value) {
             this.userId = value
