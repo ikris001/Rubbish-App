@@ -4,49 +4,49 @@ class User(_userId:Int, _username:String, _password:String, _email:String,
            _profilePictureAddress:String, _bio:String, _role:String, _score:Int)
 {
     // Declaration of all variable and their getter and setter methods
-    var userId:Int
+    private var userId:Int
         get() = this.userId
         set(value) {
             this.userId = value
         }
 
-    var username:String
+    private var username:String
         get() = this.username
         set(value) {
             this.username = value
         }
 
-    var password:String
+    private var password:String
         get() = this.password
         set(value) {
             this.password = value
         }
 
-    var email:String
+    private var email:String
         get() = this.email
         set(value) {
             this.email = value
         }
 
-    var profilePictureAddress:String
+    private var profilePictureAddress:String
         get() = this.profilePictureAddress
         set(value) {
             this.profilePictureAddress = value
         }
 
-    var bio:String
+    private var bio:String
         get() = this.bio
         set(value) {
             this.bio = value
         }
 
-    var role:String
+    private var role:String
         get() = this.role
         set(value) {
             this.role = value
         }
 
-    var score:Int
+    private var score:Int
         get() = this.score
         set(value) {
             this.score = value
