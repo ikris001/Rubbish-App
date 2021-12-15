@@ -19,6 +19,18 @@
             android:name=".RegisterFromLoginActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".editProfile"
+            android:exported="true" />
+
+        <activity
+            android:name=".ProfilePage"
+            android:exported="true" />
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
