@@ -1,60 +1,60 @@
 package com.example.rubbishapp
 
-class User(_userId:Int, _username:String, _password:String, _email:String,
+class User(_id:Int, _username:String, _password:String, _email:String,
            _profilePictureAddress:String, _bio:String, _role:String, _score:Int)
 {
     // Declaration of all variable and their getter and setter methods
-    private var userId:Int
-        get() = this.userId
-        set(value) {
-            this.userId = value
+    private var id:Int
+        get() = this.id
+        set(newId) {
+            this.id = newId
         }
 
     private var username:String
         get() = this.username
-        set(value) {
-            this.username = value
+        set(newUsername) {
+            this.username = newUsername
         }
 
     private var password:String
         get() = this.password
-        set(value) {
-            this.password = value
+        set(newPassword) {
+            this.password = newPassword
         }
 
     private var email:String
         get() = this.email
-        set(value) {
-            this.email = value
+        set(newEmail) {
+            this.email = newEmail
         }
 
     private var profilePictureAddress:String
         get() = this.profilePictureAddress
-        set(value) {
-            this.profilePictureAddress = value
+        set(newProfilePictureAddress) {
+            this.profilePictureAddress = newProfilePictureAddress
         }
 
     private var bio:String
         get() = this.bio
-        set(value) {
-            this.bio = value
+        set(newBio) {
+            this.bio = newBio
         }
 
     private var role:String
         get() = this.role
-        set(value) {
-            this.role = value
+        set(newRole) {
+            this.role = newRole
         }
 
     private var score:Int
         get() = this.score
-        set(value) {
-            this.score = value
+        set(newScore) {
+            this.score = newScore
         }
 
     // Initializer
     init {
-        this.userId = _userId
+        this.id = _id
         this.username = _username
         this.password = _password
         this.email = _email
