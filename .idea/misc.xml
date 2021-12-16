@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout-100x100/menu_fragment.xml" value="2.4080700657282597" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/picture_display.xml" value="0.3066123188405797" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.24166666666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
         <entry key="..\:/AndroidProjects/Rubbish-App/app/src/main/res/layout/activity_edit_profile.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/Rubbish-App/app/src/main/res/layout/activity_profile_page.xml" value="0.33" />
       </map>
