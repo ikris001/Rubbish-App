@@ -31,7 +31,8 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="190dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
@@ -94,13 +95,5 @@
         android:backgroundTint="@color/brown"
         android:layout_margin="10dp"
         android:layout_centerHorizontal="true"/>
-
-
-
-
-
-
-
-
 
 </RelativeLayout>
