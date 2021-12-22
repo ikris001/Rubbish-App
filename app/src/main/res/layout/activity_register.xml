@@ -7,6 +7,18 @@
     android:background="@color/brown"
     tools:context=".LoginActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.RubbishApp.LoginMenuBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/login_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
@@ -94,13 +106,5 @@
         android:backgroundTint="@color/brown"
         android:layout_margin="10dp"
         android:layout_centerHorizontal="true"/>
-
-
-
-
-
-
-
-
 
 </RelativeLayout>
