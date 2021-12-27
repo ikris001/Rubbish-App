@@ -5,7 +5,18 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapsActivity" />
+    tools:context=".MapsActivity" >
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.RubbishApp.MapMenuBar"
+        tools:ignore="MissingConstraints">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/Map_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
 
+    </com.google.android.material.appbar.AppBarLayout>
+</fragment>
