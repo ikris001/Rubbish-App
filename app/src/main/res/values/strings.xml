@@ -23,5 +23,6 @@
     <string name="Profile">Profile</string>
     <string name="EditProfile">Edit Profile</string>
     <string name="Map">Map</string>
+    <string name="Settings">Settings</string>
 
 </resources>

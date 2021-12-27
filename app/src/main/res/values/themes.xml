@@ -31,7 +31,12 @@
     </style>
 
     <style name ='Theme.RubbishApp.MapMenuBar' parent='Theme.AppCompat.Light.DarkActionBar'>
-        <item name="colorPrimary">@color/black</item>
-        <item name="android:textColorPrimary">@color/white</item>
+        <item name="colorPrimary">@color/brown</item>
+        <item name="android:textColorPrimary">@color/black</item>
+    </style>
+
+    <style name ='Theme.RubbishApp.SettingsMenuBar' parent='Theme.AppCompat.Light.DarkActionBar'>
+        <item name="colorPrimary">@color/white</item>
+        <item name="android:textColorPrimary">@color/black</item>
     </style>
 </resources>
