@@ -21,4 +21,8 @@
     <style name ='Theme.RubbishApp.RegisterMenuBar' parent='Theme.AppCompat.Light.DarkActionBar'>
         <item name="colorPrimary">#FFFDD0</item>
     </style>
+
+    <style name ='Theme.RubbishApp.ProfileMenuBar' parent='Theme.AppCompat.Light.DarkActionBar'>
+        <item name="colorPrimary">@color/white</item>
+    </style>
 </resources>
