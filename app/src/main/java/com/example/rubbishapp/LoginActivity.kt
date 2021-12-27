@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val toolbar : Toolbar = findViewById(R.id.login_toolbar)
+        val toolbar : Toolbar = findViewById(R.id.Login_toolbar)
         setSupportActionBar(toolbar)
 
     }
@@ -43,7 +43,6 @@ class LoginActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-                R.id.menu_item_1 -> true
             else -> super.onOptionsItemSelected(item)
         }
     }

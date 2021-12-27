@@ -7,6 +7,19 @@
     android:background="#FFFDD0"
     tools:context=".RegisterFromLoginActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.RubbishApp.RegisterMenuBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/RegisterFromLogin_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
     <Button
         android:id="@+id/backButtonRegister"
         android:layout_width="wrap_content"
