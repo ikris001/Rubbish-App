@@ -55,12 +55,14 @@
 
         <activity
             android:name=".editProfile"
+            android:parentActivityName=".ProfilePage"
+            android:label="@string/EditProfile"
             android:exported="false" >
         </activity>
 
         <activity
             android:name=".ProfilePage"
-            android:label="Profile"
+            android:label="@string/Profile"
             android:exported="false" >
         </activity>
 
