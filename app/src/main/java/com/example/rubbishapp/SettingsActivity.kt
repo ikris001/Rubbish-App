@@ -1,13 +1,18 @@
 package com.example.rubbishapp
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.provider.Settings.Global.getString
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
 
-class SettingsActivity : AppCompatActivity() {
+class SettingsActivity : AppCompatActivity(),
+    SharedPreferences.OnSharedPreferenceChangeListener{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +33,10 @@ class SettingsActivity : AppCompatActivity() {
 
         // show the back button the the menu bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        PreferenceManager.getDefaultSharedPreferences(this)
+            .registerOnSharedPreferenceChangeListener(this)
+
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {
@@ -49,5 +58,45 @@ class SettingsActivity : AppCompatActivity() {
         return when (item.itemId) {
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        val darkModeString = getString(R.string.dark_mode)
+
+        if (key == darkModeString) {
+
+            val pref = sharedPreferences?.getString(key, "1")
+
+            when (pref?.toInt()) {
+                1 ->{ AppCompatDelegate
+                    .setDefaultNightMode(
+                        AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+                    )
+                }
+
+                2 -> AppCompatDelegate
+                    .setDefaultNightMode(
+                        AppCompatDelegate.MODE_NIGHT_NO
+                    )
+                3 -> AppCompatDelegate
+                    .setDefaultNightMode(
+                        AppCompatDelegate.MODE_NIGHT_YES
+                    )
+                4 -> AppCompatDelegate
+                    .setDefaultNightMode(
+                        AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
+                    )
+            }
+        }
+
+    }
+
+
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        PreferenceManager.getDefaultSharedPreferences(this)
+            .unregisterOnSharedPreferenceChangeListener(this)
     }
 }
