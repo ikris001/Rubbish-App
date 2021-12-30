@@ -24,5 +24,13 @@
     <string name="EditProfile">Edit Profile</string>
     <string name="Map">Map</string>
     <string name="Settings">Settings</string>
+    <string name="signature_title" />
+    <string name="reply_title" />
+    <string name="sync_header" />
+    <string name="messages_header" />
+    <string name="sync_title" />
+    <string name="attachment_summary_off" />
+    <string name="attachment_summary_on" />
+    <string name="attachment_title" />
 
 </resources>
