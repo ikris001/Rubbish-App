@@ -6,6 +6,7 @@
         <EditTextPreference
             app:key="Signature"
             android:title="@string/signature_title"
+            android:summary="your signature"
             app:useSimpleSummaryProvider="true"/>
         <CheckBoxPreference
             android:key="checkbox"
@@ -31,6 +32,13 @@
             android:entries="@array/dark_mode_entries"
             android:entryValues="@array/dark_mode_values"
             />
+        <ListPreference
+            android:dialogTitle="Select duration"
+            android:entries="@array/settings_list_preference_titles"
+            android:entryValues="@array/settings_list_preference_values"
+            android:key="list"
+            android:summary="Click to show a list to choose from"
+            android:title="List Preference" />
 
 
     </PreferenceCategory>
