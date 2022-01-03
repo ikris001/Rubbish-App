@@ -45,21 +45,21 @@
         </activity>
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".RegisterFromLoginActivity"
             android:exported="false"
             android:label="@string/Register"
-            android:parentActivityName=".LoginActivity"></activity>
+            android:parentActivityName=".LoginActivity" />
         <activity
             android:name=".editProfile"
             android:exported="false"
             android:label="@string/EditProfile"
-            android:parentActivityName=".ProfilePage"></activity>
+            android:parentActivityName=".ProfilePage" />
         <activity
             android:name=".ProfilePage"
             android:exported="false"
-            android:label="@string/Profile"></activity>
+            android:label="@string/Profile" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/Settings"
