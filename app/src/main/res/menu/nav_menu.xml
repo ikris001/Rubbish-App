@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/home"/>
+
+
+    <item
+        android:id="@+id/nav_account"
+        android:icon="@drawable/ic_baseline_account_box_24"
+        android:title="@string/account_details"/>
+
+    <item
+        android:id="@+id/nav_contact_support"
+        android:icon="@drawable/ic_baseline_contact_support_24"
+        android:title="@string/contact_support"/>
+
+    <item
+        android:id="@+id/nav_feedback"
+        android:icon="@drawable/ic_baseline_feedback_24"
+        android:title="@string/feedback"/>
+
+    <item
+        android:id="@+id/nav_report"
+        android:icon="@drawable/ic_baseline_report_problem_24"
+        android:title="@string/report"/>
+
+
+
+
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/settings"/>
+
+    <item android:title="@string/profile">
+
+        <menu>
+
+
+            <item
+                android:id="@+id/nav_login"
+                android:icon="@drawable/ic_baseline_login_24"
+                android:title="@string/login"/>
+
+
+
+        </menu>
+
+
+    </item>
+
+    <item android:title="@string/communicate">
+
+        <menu>
+
+            <item
+                android:id="@+id/nav_rate_review"
+                android:icon="@drawable/ic_baseline_rate_review_24"
+                android:title="@string/rate_review"/>
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/nav_Term"
+        android:title="@string/term_and_conditions"/>
+
+
+
+
+
+
+</menu>

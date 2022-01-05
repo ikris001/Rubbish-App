@@ -8,11 +8,12 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
+import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 
 class SettingsActivity : AppCompatActivity(),
-    SharedPreferences.OnSharedPreferenceChangeListener{
+    SharedPreferences.OnSharedPreferenceChangeListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +24,7 @@ class SettingsActivity : AppCompatActivity(),
                 .replace(R.id.settings, SettingsFragment())
                 .commit()
         }
+
 
         val toolbar: Toolbar = findViewById(R.id.Settings_toolbar)
         setSupportActionBar(toolbar)
@@ -68,10 +70,11 @@ class SettingsActivity : AppCompatActivity(),
             val pref = sharedPreferences?.getString(key, "1")
 
             when (pref?.toInt()) {
-                1 ->{ AppCompatDelegate
-                    .setDefaultNightMode(
-                        AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-                    )
+                1 -> {
+                    AppCompatDelegate
+                        .setDefaultNightMode(
+                            AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+                        )
                 }
 
                 2 -> AppCompatDelegate
@@ -89,8 +92,8 @@ class SettingsActivity : AppCompatActivity(),
             }
         }
 
-    }
 
+    }
 
 
 
@@ -99,4 +102,5 @@ class SettingsActivity : AppCompatActivity(),
         PreferenceManager.getDefaultSharedPreferences(this)
             .unregisterOnSharedPreferenceChangeListener(this)
     }
+
 }
