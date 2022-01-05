@@ -44,6 +44,9 @@
     <string name="communicate">Communicate</string>
     <string name="rate_review">Rate review</string>
     <string name="term_and_conditions">Term and Conditions</string>
+    <string name="activity_1">Activity 1</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
 
 
 </resources>

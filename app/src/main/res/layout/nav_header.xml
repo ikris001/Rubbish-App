@@ -6,10 +6,10 @@
     android:orientation="vertical"
     android:layout_marginTop="16dp"
     android:layout_marginStart="16dp"
-    android:background="@color/white"
+    android:background="#9E9C77"
     android:layout_marginLeft="16dp">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <com.google.android.material.navigation.NavigationView
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/img"/>
@@ -19,7 +19,7 @@
         android:id="@+id/user_name"
         android:paddingTop="8dp"
         android:textSize="20dp"
-        android:text="Ben"
+        android:text="Reem"
         android:textColor="@color/black"
         android:textStyle="bold"/>
 
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16dp"
-        android:text="Ben112o@google.com"/>
+        android:text="R1112o@google.com"/>
 
     <View
         android:layout_width="match_parent"

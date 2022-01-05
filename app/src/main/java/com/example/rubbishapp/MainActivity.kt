@@ -1,81 +1,64 @@
 package com.example.rubbishapp
 
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
-import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.preference.PreferenceManager
-import com.example.rubbishapp.databinding.ActivityMainBinding
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding:ActivityMainBinding
+    lateinit var toggle: ActionBarDrawerToggle
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
+
+        val drawerLayout : DrawerLayout = findViewById(R.id.drawerLayout)
+        val navView : NavigationView = findViewById(R.id.nav_view)
+
+        toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
-        mySettings()
+        navView.setNavigationItemSelectedListener {
 
-    }
-
-    @SuppressLint("SetTextI18n")
-    private fun mySettings(){
+            when(it.itemId){
 
 
-        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        val signature = prefs.getString("Signature","")
-        val switch = prefs.getBoolean("switch",true)
-        val checkBox = prefs.getBoolean("checkbox",false)
+                R.id.nav_home -> Toast.makeText(applicationContext,"Clicked Home", Toast.LENGTH_SHORT).show()
+                R.id.nav_login -> Toast.makeText(applicationContext,"Clicked Login", Toast.LENGTH_SHORT).show()
+                R.id.nav_report -> Toast.makeText(applicationContext,"Clicked Report", Toast.LENGTH_SHORT).show()
+                R.id.nav_rate_review -> Toast.makeText(applicationContext,"Clicked Rate review",
+                    Toast.LENGTH_SHORT).show()
+                R.id.nav_feedback -> Toast.makeText(applicationContext,"Clicked Feedback", Toast.LENGTH_SHORT).show()
+                R.id.nav_settings-> Toast.makeText(applicationContext,"Clicked Settings", Toast.LENGTH_SHORT).show()
+                R.id.nav_account -> Toast.makeText(applicationContext,"Clicked Account", Toast.LENGTH_SHORT).show()
+                R.id.nav_contact_support -> Toast.makeText(applicationContext,"Clicked Contact support",
+                    Toast.LENGTH_SHORT).show()
+                R.id.nav_Term-> Toast.makeText(applicationContext,"Clicked Term and Conditions",
+                    Toast.LENGTH_SHORT).show()
 
-        binding.apply {
 
-            if (checkBox){
-                tvCheckbox.text = " Checkbox is checked..."
-            }else{
-                tvCheckbox.visibility = View.GONE
             }
-
-
-
-
-            tvSignature.text = signature
-
-            if (switch){
-                tvSwitch.text = " Switch is On..."
-            }else{
-                tvSwitch.text = "Switch is off..."
-            }
-
+            true
         }
-
-
-    }
-
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.settings_toolbar,menu)
-        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        when(item.itemId){
-            R.id.action_settings ->{
-                val intent = Intent( this,
-                    SettingsActivity::class.java)
+        if (toggle.onOptionsItemSelected(item)){
 
-                startActivity(intent)
-            }
-
-
+            return true
         }
+
         return super.onOptionsItemSelected(item)
     }
-
 }
