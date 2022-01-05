@@ -28,37 +28,37 @@ class RegisterFromLoginActivity : AppCompatActivity() {
     }
 
     fun createAccount() {
-        var usernameBox:EditText = findViewById(R.id.usernameRegister)
-        var usernameInput = usernameBox.text
-        var emailBox:EditText = findViewById(R.id.email)
-        var emailInput = emailBox.text
-        var passwordBox:EditText = findViewById(R.id.passwordRegister)
-        var passwordInput = passwordBox.text
-        var confirmPasswordBox:EditText = findViewById(R.id.confirmPasswordRegister)
-        var confirmPasswordInput = confirmPasswordBox.text
+        val usernameBox:EditText = findViewById(R.id.usernameRegister)
+        val usernameInput = usernameBox.text
+        val emailBox:EditText = findViewById(R.id.email)
+        val emailInput = emailBox.text
+        val passwordBox:EditText = findViewById(R.id.passwordRegister)
+        val passwordInput = passwordBox.text
+        val confirmPasswordBox:EditText = findViewById(R.id.confirmPasswordRegister)
+        val confirmPasswordInput = confirmPasswordBox.text
 
         var valid:Boolean = true
 
-        var validUsername:Boolean = usernameValidation(usernameInput.toString())
+        val validUsername:Boolean = usernameValidation(usernameInput.toString())
         if (!validUsername){
             valid = false
             print("Username already Taken")
         }
 
-        var validEmail:Boolean = emailValidation(emailInput.toString())
+        val validEmail:Boolean = emailValidation(emailInput.toString())
         if (!validEmail) {
             valid = false
             print("Email does not exist or is already being used")
         }
 
-        var validPassword:Boolean = passwordValidation(passwordInput.toString())
+        val validPassword:Boolean = passwordValidation(passwordInput.toString())
         if (!validPassword) {
             valid = false
             print("Password needs to contain at least one UPPERCASE and lowercase letter," +
                     " a number and a special character")
         }
 
-        var validConfirmPassword:Boolean = confirmPasswordValidation(confirmPasswordInput.toString()
+        val validConfirmPassword:Boolean = confirmPasswordValidation(confirmPasswordInput.toString()
             , passwordInput.toString())
         if (!validConfirmPassword) {
             valid = false
@@ -67,14 +67,14 @@ class RegisterFromLoginActivity : AppCompatActivity() {
 
         if (valid){
             // TODO: query database to generate new user ID
-            var newUserId:Int = 0
+            val newUserId:Int = 0
             var newUser = User(newUserId, usernameInput.toString(), passwordInput.toString(),
                 emailInput.toString(), "profilePictureAddress", "No Bio",
                 "user", 0)
             // TODO: adds new user to database
         }
 
-        // TODO: Logs user straight in and redirects to main activity
+        // TODO: Logs user in and redirects to main activity
     }
 
     fun confirmPasswordValidation(cPassword:String, password:String):Boolean {
@@ -86,7 +86,7 @@ class RegisterFromLoginActivity : AppCompatActivity() {
     }
 
     fun usernameValidation(username:String):Boolean {
-        var valid:Boolean = true
+        val valid:Boolean = true
         // TODO: Search if username value is in database
         return valid
     }
@@ -104,7 +104,7 @@ class RegisterFromLoginActivity : AppCompatActivity() {
     fun passwordValidation(password:String):Boolean {
         var valid = false
         // expression that will see if the password contains UPPERCASE and lowercase letter, one number and one special character
-        var passwordRegex = """^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!\-_?&])(?=\\S+$).{8,}""".toRegex()
+        val passwordRegex = """^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!\-_?&])(?=\\S+$).{8,}""".toRegex()
         if(passwordRegex.matches(password)){
             valid = true
         }
