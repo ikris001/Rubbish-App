@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_marginTop="16dp"
     android:layout_marginStart="16dp"
     android:background="#9E9C77"
-    android:layout_marginLeft="16dp">
+    android:layout_marginLeft="16dp"
+    tools:ignore="MissingClass">
 
-    <com.google.android.material.navigation.NavigationView
+    <ImageView
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/img"/>
