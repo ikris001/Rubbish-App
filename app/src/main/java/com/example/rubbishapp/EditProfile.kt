@@ -30,18 +30,24 @@ class EditProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
-        Initializations()
+        initializations()
         auth = FirebaseAuth.getInstance()
 
         // edit profile when changes have been submitted
         submit.setOnClickListener {
             editProfile()
+            editBio()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        validateAccount()
     }
 
     // ID's called from activity
 
-    fun Initializations() {
+    private fun initializations() {
 
         newUsername = findViewById(R.id.newUsernameField)
         newBio = findViewById(R.id.newBioField)
@@ -55,7 +61,7 @@ class EditProfile : AppCompatActivity() {
 
 
     // function to edit profile username
-    fun editProfile() {
+    private fun editProfile() {
         auth.currentUser?.let { user->
             val username = newUsername.text.toString()
             val updates  = UserProfileChangeRequest.Builder().setDisplayName(username).build()
@@ -73,11 +79,41 @@ class EditProfile : AppCompatActivity() {
                     }
                 }
             }
+        }
+    }
 
+    // Function to update BIO
+    private fun editBio() {
+        auth.currentUser?.let { user ->
+            val bio = newBio.text.toString()
+            val updateBio = UserProfileChangeRequest.Builder().setDisplayName(bio).build()
+            CoroutineScope(Dispatchers.IO).launch {
+                try{
+                    user.updateProfile(updateBio).await()
+                    Toast.makeText(this@EditProfile,"User Bio successfully updated",
+                        Toast.LENGTH_LONG).show()
+
+                } catch (e: Exception){
+                    withContext(Dispatchers.Main){
+                        Toast.makeText(this@EditProfile, e.message,
+                            Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
 
 
         }
+    }
 
+    // check to see if user is logged in or not
+    private fun validateAccount(){
+        val user = auth.currentUser
+        if (user == null){
+            // todo user not currently logged in
+        } else{
+            newUsername.setText(user.displayName)
+            newBio.setText(user.displayName)
+        }
 
     }
 
