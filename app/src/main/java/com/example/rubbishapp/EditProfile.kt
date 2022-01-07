@@ -15,6 +15,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
+/**
+ *  edit users profile with firebase auth
+ */
+
 class EditProfile : AppCompatActivity() {
     lateinit var auth:FirebaseAuth
 
@@ -116,9 +120,32 @@ class EditProfile : AppCompatActivity() {
         }
 
     }
+    /***
+     *  update profile activities without firebase authentication
+     */
 
+    // Check if the input in form is valid
+    fun authInput(): Boolean {
+        if (newUsername.text.toString().equals("")) {
+            newUsername.setError("Please Enter First Name")
+            return false
+        }
+        if (newBio.text.toString().equals("")) {
+            newBio.setError("Please Enter Last Name")
+            return false
+        }
+        return true
+    }
 
+    fun performEditProfile (view: View) {
+        if (authInput()) {
 
+            // configure database to check user validity
 
+            val username= newUsername.text.toString()
+            val bio = newBio.text.toString()
 
+            Toast.makeText(this,"Profile Update Successfully",Toast.LENGTH_SHORT).show()
+        }
+    }
 }
