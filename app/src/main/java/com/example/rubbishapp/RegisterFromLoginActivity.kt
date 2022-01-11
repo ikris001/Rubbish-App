@@ -56,6 +56,13 @@ class RegisterFromLoginActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+                !TextUtils.equals(passwordRegister.text.toString(),
+                                 confirmPasswordRegister.text.toString()) -> {
+                    Toast.makeText(
+                        this@RegisterFromLoginActivity, "Please make sure passwords match",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
                 else -> {
                     val email = email.text.toString().trim { it <= ' ' }
                     val password = passwordRegister.text.toString().trim { it <= ' ' }
