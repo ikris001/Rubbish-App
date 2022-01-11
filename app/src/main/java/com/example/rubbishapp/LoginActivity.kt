@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
         enterButton.setOnClickListener {
             var status =  if (username.text.toString().equals("Rubbish") &&
             password.text.toString().equals("Rubbish")) "Logged in Successfully" else "Log in fail"
-        Toast.makeText(this, "status", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, status, Toast.LENGTH_SHORT).show()
 
     }
         // switch between activities register and login
