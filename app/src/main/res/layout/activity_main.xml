@@ -10,6 +10,9 @@
     tools:context=".MainActivity">
 
 
+
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -27,8 +30,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.RubbishApp.MainActivityBar"
+            tools:ignore="MissingConstraints">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/mainactivity_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize" />
+
+
+            <Button
+                android:id="@+id/moreButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="-1dp"
+                android:layout_marginRight="-1dp"
+                android:text="More"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/brown"
+                android:onClick="openCloseNavigationDrawer">
+
+            </Button>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
     <com.google.android.material.navigation.NavigationView

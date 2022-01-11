@@ -5,7 +5,7 @@
 
         <EditTextPreference
             app:key="Signature"
-            android:title="@string/signature_title"
+            android:title="Signature"
             android:summary="your signature"
             app:useSimpleSummaryProvider="true"/>
         <CheckBoxPreference
@@ -25,13 +25,12 @@
             app:summary="click to switch on or off"
             app:title="Switch Preference" />
         <ListPreference
-           android:title="Dark Mode"
-            app:key="dark_mode"
-            app:useSimpleSummaryProvider="true"
-            app:defaultValue="1"
-            android:entries="@array/dark_mode_entries"
-            android:entryValues="@array/dark_mode_values"
-            />
+            app:defaultValue="@string/dark_mode_def_value"
+            app:entries="@array/dark_mode_entries"
+            app:entryValues="@array/dark_mode_values"
+            app:key="@string/dark_mode"
+            app:title="@string/dark_mode"
+            app:useSimpleSummaryProvider="true" />
         <ListPreference
             android:dialogTitle="Select duration"
             android:entries="@array/settings_list_preference_titles"
@@ -39,6 +38,17 @@
             android:key="list"
             android:summary="Click to show a list to choose from"
             android:title="List Preference" />
+
+        <Preference
+            android:summary="-"
+            android:title="Privacy Policy ">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://sites.google.com/view/rubbishapp-privacy-policy/home"
+/>
+        </Preference>
+
+
 
 
     </PreferenceCategory>

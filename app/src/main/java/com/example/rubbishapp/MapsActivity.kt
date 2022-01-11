@@ -1,11 +1,16 @@
 package com.example.rubbishapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -13,24 +18,102 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_maps.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+    lateinit var toggle: ActionBarDrawerToggle
+
+    fun openCloseNavigationDrawer1(view: View) {
+        if (drawerLayout1.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout1.closeDrawer(GravityCompat.START)
+        } else {
+            drawerLayout1.openDrawer(GravityCompat.START)
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
-                .findFragmentById(R.id.map) as SupportMapFragment
+            .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        // overlays the toolbar on the screen
-        val toolbar : Toolbar = findViewById(R.id.Map_toolbar)
-        setSupportActionBar(toolbar)
-    }
+//        // overlays the toolbar on the screen
+//        val toolbar: Toolbar = findViewById(R.id.Map_toolbar)
+//        setSupportActionBar(toolbar)
 
+
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout1)
+        val navView: NavigationView = findViewById(R.id.nav_view1)
+
+
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+        navView.setNavigationItemSelectedListener {
+
+            when (it.itemId) {
+
+
+                R.id.nav_home -> Toast.makeText(
+                    applicationContext,
+                    "Clicked Home",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.nav_login -> Toast.makeText(
+                    applicationContext,
+                    "Clicked Login",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.nav_report -> Toast.makeText(
+                    applicationContext,
+                    "Clicked Report",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.nav_rate_review -> Toast.makeText(
+                    applicationContext, "Clicked Rate review",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.nav_feedback -> Toast.makeText(
+                    applicationContext,
+                    "Clicked Feedback",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.nav_settings -> {
+                    startActivity(Intent(this, SettingsActivity::class.java))
+
+                }
+
+
+
+                R.id.nav_account -> Toast.makeText(
+                    applicationContext,
+                    "Clicked Account",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.nav_contact_support -> Toast.makeText(
+                    applicationContext, "Clicked Contact support",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.nav_Term -> Toast.makeText(
+                    applicationContext, "Clicked Term and Conditions",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+
+            }
+            true
+        }
+    }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.map_toolbar, menu)
@@ -46,10 +129,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             else -> super.onOptionsItemSelected(item)
         }
     }
-    
 
 
-/**
+
+    /**
 
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -59,7 +142,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
 
- */
+     */
 
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -70,4 +153,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
+
+
 }

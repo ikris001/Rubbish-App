@@ -1,19 +1,34 @@
 package com.example.rubbishapp
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.provider.Settings.Global.getString
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.Toolbar
-import androidx.preference.Preference
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.settings_activity.*
 
 class SettingsActivity : AppCompatActivity(),
     SharedPreferences.OnSharedPreferenceChangeListener {
+
+    fun openCloseNavigationDrawer2(view: View) {
+        if (drawerLayout2.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout2.closeDrawer(GravityCompat.START)
+        } else {
+            drawerLayout2.openDrawer(GravityCompat.START)
+        }
+    }
+
+    lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,13 +36,13 @@ class SettingsActivity : AppCompatActivity(),
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.settings, SettingsFragment())
+                .replace(R.id.fragment_container, SettingsFragment())
                 .commit()
         }
 
-
-        val toolbar: Toolbar = findViewById(R.id.Settings_toolbar)
-        setSupportActionBar(toolbar)
+//
+//        val toolbar: Toolbar = findViewById(R.id.Settings_toolbar)
+//        setSupportActionBar(toolbar)
         val actionBar = supportActionBar
 
         // show the title defined in the manifest.xml file
@@ -39,6 +54,74 @@ class SettingsActivity : AppCompatActivity(),
         PreferenceManager.getDefaultSharedPreferences(this)
             .registerOnSharedPreferenceChangeListener(this)
 
+        // nav menu
+
+
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout2)
+        val navView: NavigationView = findViewById(R.id.nav_view2)
+
+
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+        navView.setNavigationItemSelectedListener {
+
+            when (it.itemId) {
+
+
+                R.id.nav_home -> Toast.makeText(
+                    applicationContext,
+                    "Clicked Home",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.nav_login -> Toast.makeText(
+                    applicationContext,
+                    "Clicked Login",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.nav_report -> Toast.makeText(
+                    applicationContext,
+                    "Clicked Report",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.nav_rate_review -> Toast.makeText(
+                    applicationContext, "Clicked Rate review",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.nav_feedback -> Toast.makeText(
+                    applicationContext,
+                    "Clicked Feedback",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.nav_settings -> {
+                    startActivity(Intent(this, SettingsActivity::class.java))
+
+                }
+
+
+
+                R.id.nav_account -> Toast.makeText(
+                    applicationContext,
+                    "Clicked Account",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.nav_contact_support -> Toast.makeText(
+                    applicationContext, "Clicked Contact support",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.nav_Term -> Toast.makeText(
+                    applicationContext, "Clicked Term and Conditions",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+
+            }
+            true
+        }
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {

@@ -4,6 +4,10 @@
     <string name="button_text">Display This</string>
     <string name="menu_bar_text">Display In The Bar</string>
 
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <string name="ui">UI</string>
+
     <string name="back">Back</string>
     <string name="home">Home</string>
     <string name="todo">TODO</string>

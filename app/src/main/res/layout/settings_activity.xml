@@ -1,27 +1,71 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".SettingsActivity"
-    tools:ignore="Orientation">
+    android:theme="@style/Theme.RubbishApp.SettingsMenuBar">
 
-    <com.google.android.material.appbar.AppBarLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.RubbishApp.SettingsMenuBar"
-        tools:ignore="MissingConstraints">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/Settings_toolbar"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout1"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.RubbishApp.MainActivityBar"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="1dp">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <Button
+                android:id="@+id/moreButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="-1dp"
+                android:layout_marginRight="-1dp"
+                android:baselineAligned="false"
+                android:onClick="openCloseNavigationDrawer2"
+                android:text="Menu"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/brown">
 
-    <FrameLayout
-        android:id="@+id/settings"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+            </Button>
 
 
-</LinearLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="358dp"
+            android:layout_height="589dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true" />
+
+
+
+
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
