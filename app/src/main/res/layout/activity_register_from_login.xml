@@ -51,7 +51,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginStart="156dp"
         android:layout_marginLeft="156dp"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="31dp"
         android:layout_marginEnd="142dp"
         android:layout_marginRight="142dp"
         android:contentDescription="@string/todo"
@@ -107,12 +107,27 @@
         android:padding="20dp"
         android:textColorHint="@color/material_on_surface_emphasis_high_type" />
 
+    <EditText
+        android:id="@+id/bioRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/confirmPasswordRegister"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:hint="Bio"
+        android:padding="20dp"
+        android:textColorHint="@color/material_on_surface_emphasis_high_type" />
 
     <Button
         android:id="@+id/enterButtonRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/confirmPasswordRegister"
+        android:layout_below="@id/bioRegister"
         android:text="@string/enter"
         android:backgroundTint="@color/Milk"
         android:padding="10dp"
@@ -120,27 +135,6 @@
         android:layout_margin="10dp"
         android:layout_alignEnd="@id/confirmPasswordRegister"
         android:layout_alignRight="@id/confirmPasswordRegister"/>
-
-    <TextView
-        android:id="@+id/mainRegisterTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/enterButtonRegister"
-        android:layout_margin="10dp"
-        android:text="@string/if_you_already_have_an_account"
-        android:textColor="@color/black"
-        android:layout_centerHorizontal="true"/>
-
-    <Button
-        android:id="@+id/loginHereButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/mainRegisterTv"
-        android:text="@string/login_here"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/Milk"
-        android:layout_margin="10dp"
-        android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>

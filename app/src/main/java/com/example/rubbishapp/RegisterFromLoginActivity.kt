@@ -37,6 +37,7 @@ class RegisterFromLoginActivity : AppCompatActivity() {
         confirmPasswordRegister = findViewById(R.id.confirmPasswordRegister)
         email = findViewById(R.id.email)
         enterButtonRegister = findViewById(R.id.enterButtonRegister)
+        var database = FirebaseDatabase.getInstance().getReference("Users")
 
 
         // Register User
@@ -78,6 +79,11 @@ class RegisterFromLoginActivity : AppCompatActivity() {
                                     // firebase registered user
                                     val firebaseUser: FirebaseUser = task.result!!.user!!
 
+                                    // make a user in the realtime database table
+                                    val user = User(firebaseUser.uid, usernameRegister.text.toString(),
+                                        "",bioRegister.text.toString(),"User",0)
+                                    database.child(firebaseUser.uid).setValue(user)
+
                                     Toast.makeText(
                                         this@RegisterFromLoginActivity,
                                         "You are registered successfully",
@@ -105,13 +111,6 @@ class RegisterFromLoginActivity : AppCompatActivity() {
             }
         }
 
-        // called loginHereButton id from activity_register_from_login.xml
-        // switch between activities register and login
-
-        loginHereButton.setOnClickListener {
-            val intent1 = Intent(this, LoginActivity::class.java)
-            startActivity(intent1)
-        }
 
 //        enterButtonRegister.setOnClickListener {
 //            if (passwordRegister.text.toString() == confirmPasswordRegister.text.toString()) {
