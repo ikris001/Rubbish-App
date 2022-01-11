@@ -27,7 +27,7 @@ class ProfilePage : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.Profile_toolbar)
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
-        """
+
         // Is the user logged in?
         auth = FirebaseAuth.getInstance()
         Toast.makeText(this, auth.currentUser?.uid.toString(), Toast.LENGTH_LONG).show()
@@ -40,7 +40,6 @@ class ProfilePage : AppCompatActivity() {
         val bio = findViewById<TextView>(R.id.bioTxt)
         Toast.makeText(this, path, Toast.LENGTH_LONG).show()
         var bioFromDB = FirebaseDatabase.getInstance().getReference(path)
-        """
 
         // show the title defined in the manifest.xml file
         actionBar?.setDisplayShowTitleEnabled(true)
