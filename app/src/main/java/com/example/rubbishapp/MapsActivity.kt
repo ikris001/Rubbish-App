@@ -1,6 +1,7 @@
 package com.example.rubbishapp
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -104,10 +105,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     applicationContext, "Clicked Contact support",
                     Toast.LENGTH_SHORT
                 ).show()
-                R.id.nav_Term -> Toast.makeText(
-                    applicationContext, "Clicked Term and Conditions",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.nav_Term -> {
+                    val browserIntent =
+                        Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/terms-and-conditions-rubbish-/home"))
+                    startActivity(browserIntent)
+                }
 
 
             }
