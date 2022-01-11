@@ -3,12 +3,14 @@ package com.example.rubbishapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_register_from_login.*
@@ -21,6 +23,8 @@ class RegisterFromLoginActivity : AppCompatActivity() {
     private lateinit var enterButtonRegister : Button
     private val usersTable = FirebaseDatabase.getInstance().getReference("Users")
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_from_login)
@@ -30,6 +34,66 @@ class RegisterFromLoginActivity : AppCompatActivity() {
         confirmPasswordRegister = findViewById(R.id.confirmPasswordRegister)
         email = findViewById(R.id.email)
         enterButtonRegister = findViewById(R.id.enterButtonRegister)
+
+
+        // Register User
+
+        enterButtonRegister.setOnClickListener {
+            when {
+                TextUtils.isEmpty(email.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(
+                        this@RegisterFromLoginActivity, "Please enter email.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+                TextUtils.isEmpty(passwordRegister.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(
+                        this@RegisterFromLoginActivity, "Please enter password.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                else -> {
+                    val email = email.text.toString().trim { it <= ' ' }
+                    val password = passwordRegister.text.toString().trim { it <= ' ' }
+
+                    // create an instance and register a user with email and password
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(
+                            OnCompleteListener<AuthResult>{task ->
+                                // if the registration is successfully done
+
+                                if (task.isSuccessful){
+
+                                    // firebase registered user
+                                    val firebaseUser: FirebaseUser = task.result!!.user!!
+
+                                    Toast.makeText(
+                                        this@RegisterActivity,
+                                        "You are registered successfully",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+
+                                    val intent = Intent(this@RegisterActivity,
+                                        MainActivity::class.java)
+                                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                                            Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                    intent.putExtra("user_id", firebaseUser.uid)
+                                    intent.putExtra("email_id", email)
+                                    startActivity(intent)
+                                    finish()
+                                } else {
+                                    // if task not successful show error message
+                                    Toast.makeText(this@RegisterActivity,
+                                        task.exception!!.message.toString(),
+                                        Toast.LENGTH_SHORT).show()
+                                }
+
+                            }
+                        )
+                }
+            }
+        }
 
         // called loginHereButton id from activity_register_from_login.xml
         // switch between activities register and login
