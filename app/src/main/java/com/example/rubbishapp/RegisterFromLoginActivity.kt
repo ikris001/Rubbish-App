@@ -10,7 +10,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_register_from_login.*
@@ -21,7 +24,7 @@ class RegisterFromLoginActivity : AppCompatActivity() {
     private lateinit var confirmPasswordRegister : EditText
     private lateinit var email : EditText
     private lateinit var enterButtonRegister : Button
-    private val usersTable = FirebaseDatabase.getInstance().getReference("Users")
+    //private val usersTable = FirebaseDatabase.getInstance().getReference("Users")
 
 
 
@@ -60,7 +63,7 @@ class RegisterFromLoginActivity : AppCompatActivity() {
                     // create an instance and register a user with email and password
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(
-                            OnCompleteListener<AuthResult>{task ->
+                            OnCompleteListener<AuthResult>{ task ->
                                 // if the registration is successfully done
 
                                 if (task.isSuccessful){
@@ -69,13 +72,13 @@ class RegisterFromLoginActivity : AppCompatActivity() {
                                     val firebaseUser: FirebaseUser = task.result!!.user!!
 
                                     Toast.makeText(
-                                        this@RegisterActivity,
+                                        this@RegisterFromLoginActivity,
                                         "You are registered successfully",
                                         Toast.LENGTH_SHORT
                                     ).show()
 
-                                    val intent = Intent(this@RegisterActivity,
-                                        MainActivity::class.java)
+                                    val intent = Intent(this@RegisterFromLoginActivity,
+                                        LoginActivity::class.java)
                                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or
                                             Intent.FLAG_ACTIVITY_CLEAR_TASK
                                     intent.putExtra("user_id", firebaseUser.uid)
@@ -84,7 +87,7 @@ class RegisterFromLoginActivity : AppCompatActivity() {
                                     finish()
                                 } else {
                                     // if task not successful show error message
-                                    Toast.makeText(this@RegisterActivity,
+                                    Toast.makeText(this@RegisterFromLoginActivity,
                                         task.exception!!.message.toString(),
                                         Toast.LENGTH_SHORT).show()
                                 }
@@ -103,13 +106,13 @@ class RegisterFromLoginActivity : AppCompatActivity() {
             startActivity(intent1)
         }
 
-        enterButtonRegister.setOnClickListener {
-            if (passwordRegister.text.toString() == confirmPasswordRegister.text.toString()) {
-                val user = User(9, usernameRegister.text.toString(), passwordRegister.text.toString(),
-                email.text.toString(),"","","User",0)
-                createUserInDB(user, usersTable)
-            }
-        }
+//        enterButtonRegister.setOnClickListener {
+//            if (passwordRegister.text.toString() == confirmPasswordRegister.text.toString()) {
+//                val user = User(9, usernameRegister.text.toString(), passwordRegister.text.toString(),
+//                email.text.toString(),"","","User",0)
+//                createUserInDB(user, usersTable)
+//            }
+//        }
 
 
         val toolbar: Toolbar = findViewById(R.id.RegisterFromLogin_toolbar)
@@ -138,13 +141,13 @@ class RegisterFromLoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun createUserInDB(user: User, database: DatabaseReference) {
-        // connects to the DB and creates/overrides the user with the same user.username
-        database.child(user.username).setValue(user).addOnSuccessListener {
-            Toast.makeText(this,"Woo-hoo It's Done :)", Toast.LENGTH_SHORT).show()
-        }.addOnFailureListener {
-            Toast.makeText(this,"Oh No It's not done :(",Toast.LENGTH_SHORT).show()
-        }
-    }
+//    private fun createUserInDB(user: User, database: DatabaseReference) {
+//        // connects to the DB and creates/overrides the user with the same user.username
+//        database.child(user.username).setValue(user).addOnSuccessListener {
+//            Toast.makeText(this,"Woo-hoo It's Done :)", Toast.LENGTH_SHORT).show()
+//        }.addOnFailureListener {
+//            Toast.makeText(this,"Oh No It's not done :(",Toast.LENGTH_SHORT).show()
+//        }
+//    }
 
 }
