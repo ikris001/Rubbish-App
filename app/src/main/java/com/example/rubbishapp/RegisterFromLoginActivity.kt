@@ -18,7 +18,6 @@ class RegisterFromLoginActivity : AppCompatActivity() {
     private lateinit var passwordRegister : EditText
     private lateinit var confirmPasswordRegister : EditText
     private lateinit var email : EditText
-    private lateinit var enterButtonRegister : Button
     private val usersTable = FirebaseDatabase.getInstance().getReference("Users")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +28,6 @@ class RegisterFromLoginActivity : AppCompatActivity() {
         passwordRegister = findViewById(R.id.passwordRegister)
         confirmPasswordRegister = findViewById(R.id.confirmPasswordRegister)
         email = findViewById(R.id.email)
-        enterButtonRegister = findViewById(R.id.enterButtonRegister)
 
         // called loginHereButton id from activity_register_from_login.xml
         // switch between activities register and login
