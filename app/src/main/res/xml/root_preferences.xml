@@ -39,6 +39,17 @@
             android:summary="Click to show a list to choose from"
             android:title="List Preference" />
 
+        <Preference
+            android:summary="-"
+            android:title="Privacy Policy ">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://sites.google.com/view/rubbishapp-privacy-policy/home"
+/>
+        </Preference>
+
+
+
 
     </PreferenceCategory>
 
