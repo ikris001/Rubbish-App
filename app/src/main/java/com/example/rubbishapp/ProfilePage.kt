@@ -10,10 +10,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.settings_activity.view.*
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
 
 
 class ProfilePage : AppCompatActivity() {
@@ -33,13 +31,21 @@ class ProfilePage : AppCompatActivity() {
         Toast.makeText(this, auth.currentUser?.uid.toString(), Toast.LENGTH_LONG).show()
 
         val database = FirebaseDatabase.getInstance()
-        val path: String = "Users/" + auth.currentUser?.uid.toString() + "/bio"
-        val ref = database.getReference(path)
-        ref.addValueEventListener()
+        val path: String = "Users/" + auth.currentUser?.uid.toString()
+        val ref: DatabaseReference = database.getReference(path)
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    Toast.makeText(this@ProfilePage, snapshot.getValue().toString(), Toast.LENGTH_LONG).show()
+                    val user: User? = snapshot.getValue(User::class.java)
+                    val bio = findViewById<TextView>(R.id.bioTxt)
+                    bio.text = user?.bio
+                }
+            }
 
-        val bio = findViewById<TextView>(R.id.bioTxt)
-        Toast.makeText(this, path, Toast.LENGTH_LONG).show()
-        var bioFromDB = FirebaseDatabase.getInstance().getReference(path)
+            override fun onCancelled(error: DatabaseError) {}
+        })
+
 
         // show the title defined in the manifest.xml file
         actionBar?.setDisplayShowTitleEnabled(true)
