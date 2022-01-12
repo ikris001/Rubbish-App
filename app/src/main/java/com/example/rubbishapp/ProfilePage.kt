@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_profile_page.*
 import kotlinx.android.synthetic.main.settings_activity.view.*
 
 
@@ -28,7 +29,6 @@ class ProfilePage : AppCompatActivity() {
 
         // Is the user logged in?
         auth = FirebaseAuth.getInstance()
-        Toast.makeText(this, auth.currentUser?.uid.toString(), Toast.LENGTH_LONG).show()
 
         val database = FirebaseDatabase.getInstance()
         val path: String = "Users/" + auth.currentUser?.uid.toString()
@@ -36,10 +36,8 @@ class ProfilePage : AppCompatActivity() {
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    Toast.makeText(this@ProfilePage, snapshot.getValue().toString(), Toast.LENGTH_LONG).show()
                     val user: User? = snapshot.getValue(User::class.java)
-                    val bio = findViewById<TextView>(R.id.bioTxt)
-                    bio.text = user?.bio
+                    changeProfileInformation(user)
                 }
             }
 
@@ -64,6 +62,13 @@ class ProfilePage : AppCompatActivity() {
         return when (item.itemId) {
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    fun changeProfileInformation(user: User?) {
+        headerTxt.text = user?.username
+        usernameTxt.text = user?.username
+        bioTxt.text = user?.bio
+        scoreTxt.text = user?.score.toString()
     }
 
 }
