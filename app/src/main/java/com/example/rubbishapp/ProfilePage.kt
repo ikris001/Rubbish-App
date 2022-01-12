@@ -47,9 +47,6 @@ class ProfilePage : AppCompatActivity() {
                 if (snapshot.exists()) {
                     val user: User? = snapshot.getValue(User::class.java)
                     val bio = findViewById<TextView>(R.id.bioTxt)
-                    bio.text = user?.bio
-                    usernameTxt.text = user?.username
-
                     changeProfileInformation(user)
                 }
             }
