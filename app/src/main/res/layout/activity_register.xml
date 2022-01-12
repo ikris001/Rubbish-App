@@ -48,23 +48,28 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/loginEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
-        android:layout_margin="10dp"
-        android:hint="Username"
-        android:textColor="@color/black"
-        android:padding="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/brown"
         android:gravity="center"
-        android:textColorHint="@color/black"
-        android:background="@color/brown"/>
+        android:hint="@string/email"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/username"
+        android:layout_below="@id/loginEmail"
         android:layout_margin="10dp"
         android:hint="Password"
         android:padding="5dp"
