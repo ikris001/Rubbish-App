@@ -33,7 +33,6 @@ class ProfilePage : AppCompatActivity() {
         editButton.setOnClickListener {
             val intent = Intent(this,editProfile::class.java)
             startActivity(intent)
-            finish()
         }
 
         // Is the user logged in?
