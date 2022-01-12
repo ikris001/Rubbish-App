@@ -1,5 +1,6 @@
 package com.example.rubbishapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -27,6 +28,14 @@ class ProfilePage : AppCompatActivity() {
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
 
+
+        // switch to edit profile
+        editButton.setOnClickListener {
+            val intent = Intent(this,editProfile::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         // Is the user logged in?
         auth = FirebaseAuth.getInstance()
 
@@ -37,6 +46,10 @@ class ProfilePage : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     val user: User? = snapshot.getValue(User::class.java)
+                    val bio = findViewById<TextView>(R.id.bioTxt)
+                    bio.text = user?.bio
+                    usernameTxt.text = user?.username
+
                     changeProfileInformation(user)
                 }
             }
