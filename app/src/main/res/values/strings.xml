@@ -51,6 +51,10 @@
     <string name="activity_1">Activity 1</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="to" />
+    <string name="email_address" />
+    <string name="message">Message:</string>
+    <string name="subject">Subject:</string>
 
 
 </resources>
