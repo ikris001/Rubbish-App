@@ -3,9 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Rubbish-App-new/app/src/main/res/layout/activity_contact_support.xml" value="0.25" />
         <entry key="..\:/Rubbish-App-new/app/src/main/res/layout/activity_feedback.xml" value="0.21705426356589147" />
         <entry key="..\:/Rubbish-App-new/app/src/main/res/layout/activity_main.xml" value="0.259375" />
+        <entry key="..\:/Rubbish-App-new/app/src/main/res/layout/activity_profile_page.xml" value="0.1279128672745694" />
         <entry key="..\:/Rubbish-App-new/app/src/main/res/layout/activity_register.xml" value="0.259375" />
+        <entry key="..\:/Rubbish-App-new/app/src/main/res/layout/activity_register_from_login.xml" value="0.1279128672745694" />
+        <entry key="..\:/Rubbish-App-new/app/src/main/res/layout/settings_activity.xml" value="0.1279128672745694" />
+        <entry key="..\:/Rubbish-App-new/app/src/main/res/menu/contact_support.xml" value="0.17962962962962964" />
+        <entry key="..\:/Rubbish-App-new/app/src/main/res/menu/contact_support_toolbar.xml" value="0.17962962962962964" />
+        <entry key="..\:/Rubbish-App-new/app/src/main/res/menu/login_toolbar.xml" value="0.259375" />
+        <entry key="..\:/Rubbish-App-new/app/src/main/res/menu/settings_toolbar.xml" value="0.1" />
         <entry key="..\:/Rubbish-App-new1/app/src/main/res/layout/activity_main.xml" value="0.259375" />
         <entry key="..\:/Rubbish-App-new1/app/src/main/res/layout/nav_header.xml" value="0.1" />
         <entry key="..\:/Rubbish-App-new1/app/src/main/res/layout/settings_activity.xml" value="0.259375" />

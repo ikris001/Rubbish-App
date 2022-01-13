@@ -99,10 +99,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     "Clicked Account",
                     Toast.LENGTH_SHORT
                 ).show()
-                R.id.nav_contact_support -> Toast.makeText(
-                    applicationContext, "Clicked Contact support",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.nav_contact_support -> startActivity(Intent(this, ContactSupport::class.java))
                 R.id.nav_Term -> {
                     val browserIntent =
                         Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/terms-and-conditions-rubbish-/home"))

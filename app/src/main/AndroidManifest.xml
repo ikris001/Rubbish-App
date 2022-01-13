@@ -16,6 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RubbishApp">
         <activity
+            android:name=".ContactSupport"
+            android:exported="false"
+          />
+        <activity
             android:name=".feedback"
             android:exported="false" />
         <activity
