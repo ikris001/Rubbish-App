@@ -1,19 +1,23 @@
 package com.example.rubbishapp
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_profile_page.*
 import kotlinx.android.synthetic.main.settings_activity.view.*
+import java.io.File
 
 
 class ProfilePage : AppCompatActivity() {
@@ -45,8 +49,8 @@ class ProfilePage : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     val user: User? = snapshot.getValue(User::class.java)
-                    val bio = findViewById<TextView>(R.id.bioTxt)
                     changeProfileInformation(user)
+                    getProfilePicFromDB(user)
                 }
             }
 
@@ -78,6 +82,25 @@ class ProfilePage : AppCompatActivity() {
         usernameTxt.text = user?.username
         bioTxt.text = user?.bio
         scoreTxt.text = user?.score.toString()
+    }
+
+    private fun getProfilePicFromDB(user: User?) {
+
+        val imageName = user?.id.toString()
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName.png")
+
+        val localFile = File.createTempFile("prefix","suffix")
+        storageRef.getFile(localFile).addOnSuccessListener {
+
+            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+            profileImg.setImageBitmap(bitmap)
+
+        }.addOnFailureListener {
+
+            Toast.makeText(this, "Couldn't Find Profile Picture", Toast.LENGTH_SHORT).show()
+
+        }
+
     }
 
 }
