@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/user_name"
         android:paddingTop="8dp"
+        android:fontFamily="@font/amasis_mt_bold"
         android:textSize="20dp"
         android:text="Reem"
         android:textColor="@color/black"
@@ -29,6 +30,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/amasis_mt"
         android:textSize="16dp"
         android:text="R1112o@google.com"/>
 
@@ -36,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="30dp"
-        android:background="@color/underLine"/>
+        android:background="@color/signature_green"/>
 
 
 

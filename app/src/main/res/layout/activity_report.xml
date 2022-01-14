@@ -24,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:fontFamily="@font/amasis_mt_bold"
         android:text="Button"
         app:backgroundTint="@color/signature_orange"
         app:layout_constraintBottom_toBottomOf="parent"

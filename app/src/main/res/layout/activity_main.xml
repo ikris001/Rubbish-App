@@ -24,6 +24,7 @@
             android:text="@string/activity_1"
             android:textColor="@color/black"
             android:textSize="40sp"
+            android:fontFamily="@font/amasis_mt"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -51,6 +52,7 @@
                 android:layout_marginEnd="-1dp"
                 android:layout_marginRight="-1dp"
                 android:onClick="openCloseNavigationDrawer"
+                android:fontFamily="@font/amasis_mt_bold"
                 android:text="More"
                 android:textColor="@color/white"
                 app:backgroundTint="@color/signature_orange">

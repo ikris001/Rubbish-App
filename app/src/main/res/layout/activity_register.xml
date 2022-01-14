@@ -40,6 +40,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"
+        android:fontFamily="@font/amasis_mt"
         android:hint="@string/Email"
         android:padding="5dp"
         android:textColor="@color/black"
@@ -57,6 +58,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"
+        android:fontFamily="@font/amasis_mt"
         android:hint="Password"
         android:padding="5dp"
         android:textColor="@color/black"
@@ -76,6 +78,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:padding="10dp"
+        android:fontFamily="@font/amasis_mt_bold"
         android:text="Enter"
         android:textColor="@color/white"
         app:backgroundTint="@color/signature_orange" />
@@ -86,7 +89,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/enterButton"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/amasis_mt"
         android:text="@string/if_you_do_not_have_an_account"
         android:textColor="@color/black" />
 
@@ -102,6 +111,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
+        android:fontFamily="@font/amasis_mt_bold"
         android:text="Register"
         android:textColor="@color/white"
         app:backgroundTint="@color/signature_orange" />
