@@ -19,25 +19,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/back"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/brown" />
-
-    <Button
-        android:id="@+id/homeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="-1dp"
-        android:layout_marginRight="-1dp"
-        android:text="Home"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/brown" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -84,13 +65,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
-        android:text="Enter"
+        android:layout_alignEnd="@id/password"
+        android:layout_alignRight="@id/password"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/brown"
         android:padding="10dp"
-        android:textColor="@color/black"
-        android:layout_alignRight="@id/password"
-        android:layout_margin="10dp"
-        android:layout_alignEnd="@id/password" />
+        android:text="Enter"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/registerTv"
