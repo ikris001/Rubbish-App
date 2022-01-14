@@ -49,8 +49,8 @@
                 android:baselineAligned="false"
                 android:onClick="openCloseNavigationDrawer1"
                 android:text="Menu"
-                android:textColor="@color/black"
-                app:backgroundTint="@color/brown">
+                android:textColor="@color/white"
+                app:backgroundTint="@color/signature_orange">
 
             </Button>
 

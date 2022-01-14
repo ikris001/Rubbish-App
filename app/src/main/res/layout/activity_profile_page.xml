@@ -5,6 +5,7 @@
     android:id="@+id/editBtn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/signature_green"
     tools:context=".ProfilePage">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -16,7 +17,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/Profile_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/signature_green_darker" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -25,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Edit Profile"
+        app:backgroundTint="@color/signature_orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

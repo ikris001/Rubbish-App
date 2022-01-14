@@ -11,12 +11,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/signature_green">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/signature_green_darker"
             android:theme="@style/Theme.RubbishApp.MainActivityBar"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
@@ -33,8 +35,8 @@
                 android:baselineAligned="false"
                 android:onClick="openCloseNavigationDrawer2"
                 android:text="Menu"
-                android:textColor="@color/black"
-                app:backgroundTint="@color/brown">
+                android:textColor="@color/white"
+                app:backgroundTint="@color/signature_orange">
 
             </Button>
 

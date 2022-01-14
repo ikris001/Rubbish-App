@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brown"
+    android:background="@color/signature_green"
     tools:context=".LoginActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -15,7 +15,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/Login_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/signature_green_darker" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -24,8 +25,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="130dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
@@ -35,13 +35,12 @@
         android:layout_below="@id/imageView"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/brown"
         android:gravity="center"
-        android:hint="@string/email"
+        android:hint="@string/Email"
         android:padding="5dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black" />
@@ -51,14 +50,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/loginEmail"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
         android:hint="Password"
         android:padding="5dp"
-        android:gravity="center"
-        android:textColorHint="@color/black"
         android:textColor="@color/black"
-        android:background="@color/brown"
-        />
+        android:textColorHint="@color/black" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/enterButton"
@@ -73,30 +75,35 @@
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/brown"
         android:padding="10dp"
         android:text="Enter"
-        android:textColor="@color/black" />
+        android:textColor="@color/white"
+        app:backgroundTint="@color/signature_orange" />
 
     <TextView
         android:id="@+id/registerTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/enterButton"
+        android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
         android:text="@string/if_you_do_not_have_an_account"
-        android:textColor="@color/black"
-        android:layout_centerHorizontal="true"/>
+        android:textColor="@color/black" />
 
     <Button
         android:id="@+id/registerHereButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/registerTv"
-        android:text="register here"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/brown"
-        android:layout_margin="10dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Register"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/signature_orange" />
 
 </RelativeLayout>

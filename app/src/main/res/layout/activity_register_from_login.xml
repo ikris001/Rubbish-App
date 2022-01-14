@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFDD0"
+    android:background="@color/signature_green"
     tools:context=".RegisterFromLoginActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -15,25 +15,22 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/RegisterFromLogin_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/signature_green_darker" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
 
     <ImageView
         android:id="@+id/imageViewRegister"
-        android:layout_width="180dp"
-        android:layout_height="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="156dp"
-        android:layout_marginLeft="156dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="142dp"
-        android:layout_marginRight="142dp"
+        android:layout_alignParentRight="false"
+        android:layout_marginTop="73dp"
         android:contentDescription="@string/todo"
         android:gravity="center_vertical"
         tools:srcCompat="@tools:sample/avatars" />
@@ -43,11 +40,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageViewRegister"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
         android:hint="@string/username"
         android:padding="20dp"
-        android:gravity="center"
-        android:textColorHint="@color/material_on_surface_emphasis_high_type"/>
+        android:textColorHint="@color/material_on_surface_emphasis_high_type" />
 
     <EditText
         android:id="@+id/email"
@@ -55,10 +57,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/usernameRegister"
         android:layout_margin="10dp"
+        android:gravity="center"
         android:hint="@string/Email"
         android:padding="20dp"
-        android:gravity="center"
-        android:textColorHint="@color/material_on_surface_emphasis_high_type"/>
+        android:textColorHint="@color/material_on_surface_emphasis_high_type" />
 
     <EditText
         android:id="@+id/passwordRegister"
@@ -108,13 +110,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/bioRegister"
-        android:text="@string/enter"
-        android:backgroundTint="@color/Milk"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:layout_margin="10dp"
         android:layout_alignEnd="@id/confirmPasswordRegister"
-        android:layout_alignRight="@id/confirmPasswordRegister"/>
+        android:layout_alignRight="@id/confirmPasswordRegister"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/signature_orange"
+        android:padding="10dp"
+        android:text="@string/enter"
+        android:textColor="@color/white" />
 
 
 </RelativeLayout>

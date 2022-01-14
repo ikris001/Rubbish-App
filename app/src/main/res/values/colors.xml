@@ -4,6 +4,14 @@
     <color name="signature_yellow">#FFFFCD60</color>
     <color name="signature_orange">#FFFF963D</color>
     <color name="signature_red">#FFFF5C4E</color>
+    <color name="signature_green_darker">#FF88874A</color>
+    <color name="signature_yellow_darker">#FFB69244</color>
+    <color name="signature_orange_darker">#FFAF682B</color>
+    <color name="signature_red_darker">#FFBC4238</color>
+    <color name="signature_green_lighter">#FFDDDC92</color>
+    <color name="signature_yellow_lighter">#FFFAD584</color>
+    <color name="signature_orange_lighter">#FFFDB06E</color>
+    <color name="signature_red_lighter">#FFFA7469</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
