@@ -75,11 +75,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     "Clicked Login",
                     Toast.LENGTH_SHORT
                 ).show()
-                R.id.nav_report -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Report",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.nav_report -> {
+                    startActivity(Intent(this, ReportActivity::class.java))
+                }
                 R.id.nav_rate_review -> Toast.makeText(
                     applicationContext, "Clicked Rate review",
                     Toast.LENGTH_SHORT
