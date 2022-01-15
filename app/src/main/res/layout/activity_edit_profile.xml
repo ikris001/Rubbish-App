@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/signature_green"
+    android:theme="@style/Theme.RubbishApp.EditProfileActivity"
     tools:context=".editProfile">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -27,7 +28,7 @@
         android:layout_width="335dp"
         android:layout_height="47dp"
         android:fontFamily="@font/amasis_mt"
-        android:hint="New Description"
+        android:hint="@string/new_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newUsernameField" />
@@ -40,8 +41,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:fontFamily="@font/amasis_mt_bold"
-        android:text="Submit"
-        app:backgroundTint="@color/signature_orange"
+        android:text="@string/submit"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/signature_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newBioField" />
 
@@ -53,7 +55,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout2"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/app_name" />
 
     <Button
         android:id="@+id/cancelBtn"
@@ -63,8 +66,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:fontFamily="@font/amasis_mt_bold"
-        android:text="Cancel"
-        app:backgroundTint="@color/signature_orange"
+        android:text="@string/cancel"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/signature_green"
         app:layout_constraintEnd_toStartOf="@+id/submitBtn"
         app:layout_constraintTop_toBottomOf="@+id/newBioField" />
 
@@ -74,7 +78,7 @@
         android:layout_height="47dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/amasis_mt"
-        android:hint="New Username"
+        android:hint="@string/new_username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPictureBtn" />
@@ -85,8 +89,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:fontFamily="@font/amasis_mt_bold"
-        android:text="Edit"
-        app:backgroundTint="@color/signature_orange"
+        android:text="@string/edit"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/signature_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,8 +105,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/amasis_mt_bold"
-        android:text="Delete Account"
-        app:backgroundTint="@color/signature_orange"
+        android:text="@string/delete_account"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/signature_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

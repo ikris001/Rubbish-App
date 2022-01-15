@@ -31,6 +31,7 @@ class RegisterFromLoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_from_login)
+        imageViewRegister.setImageResource(R.drawable.logo)
 
         usernameRegister = findViewById(R.id.usernameRegister)
         passwordRegister = findViewById(R.id.passwordRegister)

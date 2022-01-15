@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/signature_green"
+    android:background="@color/signature_orange"
+    android:theme="@style/Theme.RubbishApp.LoginActivity"
     tools:context=".LoginActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -16,17 +17,25 @@
             android:id="@+id/Login_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/signature_green_darker" />
+            android:background="@color/signature_orange_darker" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp"
+        tools:src="@drawable/logo"
+        android:padding="@android:dimen/app_icon_size"
+        android:contentDescription="@string/app_name" />
 
     <EditText
         android:id="@+id/loginEmail"
@@ -44,7 +53,9 @@
         android:hint="@string/Email"
         android:padding="5dp"
         android:textColor="@color/black"
-        android:textColorHint="@color/black" />
+        android:textColorHint="@color/black"
+        android:inputType="textEmailAddress"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/password"
@@ -59,12 +70,14 @@
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:fontFamily="@font/amasis_mt"
-        android:hint="Password"
+        android:hint="@string/password"
         android:padding="5dp"
         android:textColor="@color/black"
-        android:textColorHint="@color/black" />
+        android:textColorHint="@color/black"
+        android:inputType="textPassword"
+        android:importantForAutofill="no" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/enterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -79,8 +92,8 @@
         android:layout_marginBottom="10dp"
         android:padding="10dp"
         android:fontFamily="@font/amasis_mt_bold"
-        android:text="Enter"
-        android:textColor="@color/white"
+        android:text="@string/enter"
+        android:textColor="@color/black"
         app:backgroundTint="@color/signature_orange" />
 
     <TextView
@@ -112,8 +125,8 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/amasis_mt_bold"
-        android:text="Register"
-        android:textColor="@color/white"
+        android:text="@string/register_here"
+        android:textColor="@color/black"
         app:backgroundTint="@color/signature_orange" />
 
 </RelativeLayout>
