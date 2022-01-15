@@ -10,7 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.Toolbar
-// import com.github.dhaval2404.imagepicker.ImagePicker
+import com.github.dhaval2404.imagepicker.ImagePicker
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 
 class editProfile : AppCompatActivity() {
@@ -34,7 +34,7 @@ class editProfile : AppCompatActivity() {
         // allow user to use the camera to take a picture
 
         editProfile.setOnClickListener {
-           // ImagePicker.with(this).cameraOnly().crop().maxResultSize(400,400).start()
+           ImagePicker.with(this).cameraOnly().crop().maxResultSize(400,400).start()
         }
 
         // show the title defined in the manifest.xml file
