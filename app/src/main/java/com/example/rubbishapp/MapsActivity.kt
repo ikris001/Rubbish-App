@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
@@ -20,6 +21,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_maps.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -28,6 +30,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     lateinit var toggle: ActionBarDrawerToggle
 
     fun openCloseNavigationDrawer1(view: View) {
+        val nv_email = findViewById<View>(R.id.nav_header_user_email) as TextView
+        nv_email.text = FirebaseAuth.getInstance()
+            .currentUser!!.email
+
+
+        val nv_name = findViewById<View>(R.id.nav_header_user_name) as TextView
+        nv_name.text = FirebaseAuth.getInstance()
+            .currentUser!!.uid
+
         if (drawerLayout1.isDrawerOpen(GravityCompat.START)) {
             drawerLayout1.closeDrawer(GravityCompat.START)
         } else {
@@ -37,6 +48,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.

@@ -18,21 +18,22 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/user_name"
+        android:id="@+id/nav_header_user_name"
         android:paddingTop="8dp"
         android:fontFamily="@font/amasis_mt_bold"
         android:textSize="20dp"
-        android:text="Reem"
-        android:textColor="@color/black"
+        android:text="Test Name"
         android:textStyle="bold"/>
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/nav_header_user_email"
         android:fontFamily="@font/amasis_mt"
+        android:text="Test@email.com"
         android:textSize="16dp"
-        android:text="R1112o@google.com"/>
+        />
 
     <View
         android:layout_width="match_parent"

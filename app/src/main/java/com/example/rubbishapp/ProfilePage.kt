@@ -18,6 +18,7 @@ import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_maps.*
 import kotlinx.android.synthetic.main.activity_profile_page.*
+import kotlinx.android.synthetic.main.nav_header.*
 import kotlinx.android.synthetic.main.settings_activity.view.*
 import java.io.File
 
@@ -26,10 +27,6 @@ class ProfilePage : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
 
-    // function to open Edit Profile page
-//    fun openEditProfilePage(view: View) {
-//        startActivity(Intent(this, EditProfile::class.java))
-//    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
