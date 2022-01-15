@@ -35,7 +35,7 @@
                 android:baselineAligned="false"
                 android:onClick="openCloseNavigationDrawer2"
                 android:fontFamily="@font/amasis_mt_bold"
-                android:text="Menu"
+                android:text="@string/menu"
                 android:textColor="@color/white"
                 app:backgroundTint="@color/signature_orange">
 

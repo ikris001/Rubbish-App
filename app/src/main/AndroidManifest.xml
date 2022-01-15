@@ -36,7 +36,8 @@
 
         <activity
             android:name=".LoginActivity"
-            android:label="@string/Login">
+            android:label="@string/Login"
+            android:theme="@style/Theme.RubbishApp.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,16 +54,19 @@
             android:name=".RegisterFromLoginActivity"
             android:exported="false"
             android:label="@string/Register"
+            android:theme="@style/Theme.RubbishApp.RegisterActivity"
             android:parentActivityName=".LoginActivity" />
         <activity
-            android:name=".editProfile"
+            android:name=".EditProfile"
             android:exported="false"
             android:label="@string/EditProfile"
+            android:theme="@style/Theme.RubbishApp.EditProfileActivity"
             android:parentActivityName=".ProfilePage" />
         <activity
             android:name=".ProfilePage"
             android:exported="false"
-            android:label="@string/Profile" />
+            android:label="@string/Profile"
+            android:theme="@style/Theme.RubbishApp.ProfileActivity" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/Settings"

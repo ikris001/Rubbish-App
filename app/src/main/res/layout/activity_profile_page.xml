@@ -5,7 +5,8 @@
     android:id="@+id/editBtn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/signature_green"
+    android:background="@color/signature_yellow"
+    android:theme="@style/Theme.RubbishApp.ProfileActivity"
     tools:context=".ProfilePage">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -18,7 +19,7 @@
             android:id="@+id/Profile_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/signature_green_darker" />
+            android:background="@color/signature_yellow_darker" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -27,8 +28,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/amasis_mt_bold"
-        android:text="Edit Profile"
-        app:backgroundTint="@color/signature_orange"
+        android:text="@string/EditProfile"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/signature_yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="164dp"
         android:fontFamily="@font/amasis_mt"
-        android:text="Username"
+        android:text="@string/username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +58,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerTxt"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="@string/app_name" />
 
     <TextView
         android:id="@+id/headerTxt"
@@ -64,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="148dp"
         android:fontFamily="@font/amasis_mt"
-        android:text="/name/ Profile"
+        android:text="@string/profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -75,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:fontFamily="@font/amasis_mt"
-        android:text="Description"
+        android:text="@string/description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerTxt" />
@@ -86,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="236dp"
         android:fontFamily="@font/amasis_mt"
-        android:text="Score"
+        android:text="@string/score"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
