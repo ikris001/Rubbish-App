@@ -82,11 +82,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     applicationContext, "Clicked Rate review",
                     Toast.LENGTH_SHORT
                 ).show()
-                R.id.nav_feedback -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Feedback",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.nav_feedback -> startActivity(Intent(this, feedback::class.java))
+
+
                 R.id.nav_settings -> {
                     startActivity(Intent(this, SettingsActivity::class.java))
 
@@ -99,10 +97,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     "Clicked Account",
                     Toast.LENGTH_SHORT
                 ).show()
-                R.id.nav_contact_support -> Toast.makeText(
-                    applicationContext, "Clicked Contact support",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.nav_contact_support -> startActivity(Intent(this, ContactSupport::class.java))
                 R.id.nav_Term -> {
                     val browserIntent =
                         Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/terms-and-conditions-rubbish-/home"))
