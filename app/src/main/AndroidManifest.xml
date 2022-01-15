@@ -57,7 +57,7 @@
             android:theme="@style/Theme.RubbishApp.RegisterActivity"
             android:parentActivityName=".LoginActivity" />
         <activity
-            android:name=".editProfile"
+            android:name=".EditProfile"
             android:exported="false"
             android:label="@string/EditProfile"
             android:theme="@style/Theme.RubbishApp.EditProfileActivity"
