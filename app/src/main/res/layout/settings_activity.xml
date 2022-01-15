@@ -12,7 +12,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/signature_green">
+        android:background="@color/signature_green"
+        android:theme="@style/Theme.RubbishApp.SettingsMenuBar">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout1"

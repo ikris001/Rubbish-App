@@ -12,9 +12,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_maps.*
 import kotlinx.android.synthetic.main.activity_profile_page.*
 import kotlinx.android.synthetic.main.settings_activity.view.*
 import java.io.File
@@ -23,6 +25,12 @@ import java.io.File
 class ProfilePage : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
+
+    // function to open Edit Profile page
+    fun openEditProfilePage(view: View) {
+        startActivity(Intent(this, EditProfile::class.java))
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,11 +41,11 @@ class ProfilePage : AppCompatActivity() {
         val actionBar = supportActionBar
 
 
-        // switch to edit profile
-        editButton.setOnClickListener {
-            val intent = Intent(this,EditProfile::class.java)
-            startActivity(intent)
-        }
+//        // switch to edit profile
+//        editButton.setOnClickListener {
+//            val intent = Intent(this,EditProfile::class.java)
+//            startActivity(intent)
+//        }
 
         // Is the user logged in?
         auth = FirebaseAuth.getInstance()

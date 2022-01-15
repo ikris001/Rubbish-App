@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
                                     ).show()
 
                                     val intent = Intent(this@LoginActivity,
-                                       ProfilePage::class.java)
+                                       MapsActivity::class.java)
                                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or
                                             Intent.FLAG_ACTIVITY_CLEAR_TASK
                                     intent.putExtra("user_id", FirebaseAuth.getInstance()

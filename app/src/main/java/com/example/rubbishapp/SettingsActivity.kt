@@ -75,11 +75,9 @@ class SettingsActivity : AppCompatActivity(),
             when (it.itemId) {
 
 
-                R.id.nav_home -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Home",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.nav_home -> {
+                    startActivity(Intent(this, MapsActivity::class.java))
+                }
                 R.id.nav_login -> Toast.makeText(
                     applicationContext,
                     "Clicked Login",
@@ -104,11 +102,9 @@ class SettingsActivity : AppCompatActivity(),
 
 
 
-                R.id.nav_account -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Account",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.nav_account -> {
+                    startActivity(Intent(this, ProfilePage::class.java))
+                }
                 R.id.nav_contact_support -> startActivity(Intent(this, ContactSupport::class.java))
                 R.id.nav_Term -> {
                     val browserIntent =
