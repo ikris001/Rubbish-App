@@ -12,6 +12,12 @@
     <color name="signature_yellow_lighter">#FFFAD584</color>
     <color name="signature_orange_lighter">#FFFDB06E</color>
     <color name="signature_red_lighter">#FFFA7469</color>
+    <color name="red_area">#FFE31A1A</color>
+    <color name="yellow_area">#FFF1CF23</color>
+    <color name="green_area">#FF45EF31</color>
+    <color name="red_area_transparent">#4DE31A1A</color>
+    <color name="yellow_area_transparent">#4DF1CF23</color>
+    <color name="green_area_transparent">#4D45EF31</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
