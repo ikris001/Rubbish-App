@@ -29,7 +29,7 @@ class editProfile : AppCompatActivity() {
 
         // allow user to use the camera to take a picture
 
-        editPictureBtn.setOnClickListener {
+        editProfile.setOnClickListener {
             ImagePicker.with(this).cameraOnly().crop().maxResultSize(400,400).start()
         }
 
