@@ -17,7 +17,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 
 
-class editProfile : AppCompatActivity() {
+class EditProfile : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
