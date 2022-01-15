@@ -2,6 +2,7 @@ package com.example.rubbishapp
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -70,6 +71,7 @@ class SettingsActivity : AppCompatActivity(),
 
         navView.setNavigationItemSelectedListener {
 
+
             when (it.itemId) {
 
 
@@ -92,11 +94,9 @@ class SettingsActivity : AppCompatActivity(),
                     applicationContext, "Clicked Rate review",
                     Toast.LENGTH_SHORT
                 ).show()
-                R.id.nav_feedback -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Feedback",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.nav_feedback -> startActivity(Intent(this, feedback::class.java))
+
+
                 R.id.nav_settings -> {
                     startActivity(Intent(this, SettingsActivity::class.java))
 
@@ -109,14 +109,12 @@ class SettingsActivity : AppCompatActivity(),
                     "Clicked Account",
                     Toast.LENGTH_SHORT
                 ).show()
-                R.id.nav_contact_support -> Toast.makeText(
-                    applicationContext, "Clicked Contact support",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.nav_Term -> Toast.makeText(
-                    applicationContext, "Clicked Term and Conditions",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.nav_contact_support -> startActivity(Intent(this, ContactSupport::class.java))
+                R.id.nav_Term -> {
+                    val browserIntent =
+                        Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/terms-and-conditions-rubbish-/home"))
+                    startActivity(browserIntent)
+                }
 
 
             }
