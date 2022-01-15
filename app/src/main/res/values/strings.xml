@@ -60,6 +60,8 @@
     <string name="activity_1">Activity 1</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="subject" />
+    <string name="message" />
 
 
 </resources>

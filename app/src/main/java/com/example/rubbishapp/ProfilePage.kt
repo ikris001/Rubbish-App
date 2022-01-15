@@ -35,7 +35,7 @@ class ProfilePage : AppCompatActivity() {
 
         // switch to edit profile
         editButton.setOnClickListener {
-            val intent = Intent(this,editProfile::class.java)
+            val intent = Intent(this,EditProfile::class.java)
             startActivity(intent)
         }
 

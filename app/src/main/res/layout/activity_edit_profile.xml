@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/signature_green"
     android:theme="@style/Theme.RubbishApp.EditProfileActivity"
-    tools:context=".editProfile">
+    tools:context=".EditProfile">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout2"
