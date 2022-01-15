@@ -37,7 +37,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val nv_name = findViewById<View>(R.id.nav_header_user_name) as TextView
         nv_name.text = FirebaseAuth.getInstance()
-            .currentUser!!.uid
+            .currentUser!!.displayName
 
         if (drawerLayout1.isDrawerOpen(GravityCompat.START)) {
             drawerLayout1.closeDrawer(GravityCompat.START)
