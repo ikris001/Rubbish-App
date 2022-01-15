@@ -4,16 +4,34 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.widget.Toolbar
+import com.github.dhaval2404.imagepicker.ImagePicker
+import kotlinx.android.synthetic.main.activity_edit_profile.*
 
 class editProfile : AppCompatActivity() {
+
+
+    var profileImg3: ImageView?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
 
+        profileImg3 = findViewById(R.id.profileImg3)
+
+        val editProfile = findViewById<Button>(R.id.editPictureBtn)
+
         val toolbar: Toolbar = findViewById(R.id.EditProfile_toolbar)
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
+
+        // allow user to use the camera to take a picture
+
+        editPictureBtn.setOnClickListener {
+            ImagePicker.with(this).cameraOnly().crop().maxResultSize(400,400).start()
+        }
 
         // show the title defined in the manifest.xml file
         actionBar?.setDisplayShowTitleEnabled(true)
