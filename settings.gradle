@@ -1,2 +1,14 @@
+/*
+  this is what is needed after adding it the code breaks
+ * dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        maven { url "https://jitpack.io" } - most important one
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+ */
 include ':app'
 rootProject.name = "Rubbish App"
