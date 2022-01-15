@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.drawerlayout.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawerLayout3"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".EditProfile">
-
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -20,34 +9,19 @@
     tools:context=".EditProfile">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout3"
+        android:id="@+id/appBarLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.RubbishApp.MapMenuBar"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="1dp">
+        android:theme="@style/Theme.RubbishApp.EditProfileMenuBar"
+        tools:ignore="MissingConstraints">
 
-        <Button
-            android:id="@+id/moreButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="-1dp"
-            android:layout_marginRight="-1dp"
-            android:baselineAligned="false"
-            android:onClick="openCloseNavigationDrawer3"
-            android:fontFamily="@font/amasis_mt_bold"
-            android:text="Menu"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/signature_orange">
-
-        </Button>
-
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/EditProfile_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/signature_green_darker" />
 
     </com.google.android.material.appbar.AppBarLayout>
-
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/newBioField"
@@ -80,7 +54,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2"
         tools:srcCompat="@tools:sample/avatars"
         android:contentDescription="@string/app_name" />
 
@@ -138,15 +112,3 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view3"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_menu"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true" />
-
-</androidx.drawerlayout.widget.DrawerLayout>

@@ -27,9 +27,9 @@ class ProfilePage : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
 
     // function to open Edit Profile page
-    fun openEditProfilePage(view: View) {
-        startActivity(Intent(this, EditProfile::class.java))
-    }
+//    fun openEditProfilePage(view: View) {
+//        startActivity(Intent(this, EditProfile::class.java))
+//    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,11 +41,11 @@ class ProfilePage : AppCompatActivity() {
         val actionBar = supportActionBar
 
 
-//        // switch to edit profile
-//        editButton.setOnClickListener {
-//            val intent = Intent(this,EditProfile::class.java)
-//            startActivity(intent)
-//        }
+        // switch to edit profile
+        editButton.setOnClickListener {
+            val intent = Intent(this,EditProfile::class.java)
+            startActivity(intent)
+        }
 
         // Is the user logged in?
         auth = FirebaseAuth.getInstance()
