@@ -6,20 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.GravityCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_maps.*
 import kotlinx.android.synthetic.main.activity_profile_page.*
-import kotlinx.android.synthetic.main.nav_header.*
-import kotlinx.android.synthetic.main.settings_activity.view.*
 import java.io.File
 
 
@@ -40,7 +32,7 @@ class ProfilePage : AppCompatActivity() {
 
         // switch to edit profile
         editButton.setOnClickListener {
-            val intent = Intent(this,editProfile::class.java)
+            val intent = Intent(this,EditProfile::class.java)
             startActivity(intent)
         }
 
