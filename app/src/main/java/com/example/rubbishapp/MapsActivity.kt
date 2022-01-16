@@ -184,7 +184,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             ActivityCompat.requestPermissions(this, arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION), 1)
         }
 
-        val areas:MutableList<Area?> = mutableListOf()
+        var areas:MutableList<Area?> = mutableListOf()
         val database = FirebaseDatabase.getInstance()
         val ref: DatabaseReference = database.getReference("Areas")
         ref.addValueEventListener(object : ValueEventListener {
@@ -198,6 +198,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
             override fun onCancelled(error: DatabaseError) {}
         })
+
 
         for(i in areas){
             mMap.addPolygon(i?.shape)

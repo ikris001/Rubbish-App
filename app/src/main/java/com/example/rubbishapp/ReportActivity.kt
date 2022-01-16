@@ -19,6 +19,7 @@ import com.google.android.gms.maps.model.*
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import java.sql.Time
 import java.time.LocalDateTime
 
 
@@ -93,7 +94,7 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
                     .addAll(points)
             val database = FirebaseDatabase.getInstance().getReference("Areas")
             points.clear()
-            val tempArea = Area("",tempPoly, userTemp, LocalDateTime.now())
+            val tempArea = Area("",tempPoly, userTemp)
             database.push().setValue(tempArea).addOnFailureListener {
                 Toast.makeText(this,"An error occurred. Try again...", Toast.LENGTH_SHORT).show()
             }
