@@ -34,13 +34,9 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/Theme.RubbishApp.MainActivityBar"
+            android:theme="@style/Theme.RubbishApp.MenuBar"
             tools:ignore="MissingConstraints">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/mainactivity_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize" />
 
 
             <Button

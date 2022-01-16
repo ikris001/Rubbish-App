@@ -5,8 +5,7 @@
     android:id="@+id/drawerLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivity"
-    android:theme="@style/Theme.RubbishApp.SettingsMenuBar">
+    tools:context=".SettingsActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +16,6 @@
             android:id="@+id/appBarLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/Theme.RubbishApp.MainActivityBar"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="1dp">

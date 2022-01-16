@@ -2,6 +2,7 @@ package com.example.rubbishapp
 
 import android.Manifest
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -12,10 +13,12 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.preference.PreferenceManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 
@@ -56,19 +59,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
-//        // overlays the toolbar on the screen
-//        val toolbar: Toolbar = findViewById(R.id.Map_toolbar)
-//        setSupportActionBar(toolbar)
-
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout1)
         val navView: NavigationView = findViewById(R.id.nav_view1)
@@ -188,3 +184,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
 }
+
+
+
+

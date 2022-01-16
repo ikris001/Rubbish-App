@@ -41,7 +41,7 @@
         <item name="android:textColorPrimary">@color/black</item>
     </style>
 
-    <style name ='Theme.RubbishApp.SettingsMenuBar' parent='Theme.AppCompat.Light.DarkActionBar'>
+    <style name ='Theme.RubbishApp.MenuBar' parent='Theme.AppCompat.Light.NoActionBar'>
         <item name="colorPrimary">@color/white</item>
         <item name="android:textColorPrimary">@color/black</item>
     </style>

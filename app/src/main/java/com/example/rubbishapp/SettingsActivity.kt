@@ -173,10 +173,10 @@ class SettingsActivity : AppCompatActivity(),
 
 
 
-    override fun onDestroy() {
-        super.onDestroy()
-        PreferenceManager.getDefaultSharedPreferences(this)
-            .unregisterOnSharedPreferenceChangeListener(this)
-    }
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        PreferenceManager.getDefaultSharedPreferences(this)
+//            .unregisterOnSharedPreferenceChangeListener(this)
+//    }
 
 }

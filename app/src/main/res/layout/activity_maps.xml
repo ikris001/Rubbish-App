@@ -33,7 +33,6 @@
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/Theme.RubbishApp.MapMenuBar"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="1dp">
@@ -60,8 +59,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view1"
         android:layout_width="wrap_content"
@@ -72,3 +69,5 @@
         android:fitsSystemWindows="true" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
+
+

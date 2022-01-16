@@ -46,7 +46,7 @@
     <string name="attachment_summary_on" />
     <string name="attachment_title" />
     <string name="dark_mode">Dark Mode</string>
-    <string name="dark_mode_def_value">1</string>
+    <string name="dark_mode_def_value">2</string>
     <string name="account_details">Account Details</string>
     <string name="contact_support">Contact Support</string>
     <string name="feedback">Feedback</string>
