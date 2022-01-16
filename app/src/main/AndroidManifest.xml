@@ -16,9 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RubbishApp">
         <activity
+            android:name=".Rating"
+            android:exported="false" />
+        <activity
             android:name=".ContactSupport"
-            android:exported="false"
-          />
+            android:exported="false" />
         <activity
             android:name=".feedback"
             android:exported="false" />
@@ -61,14 +63,14 @@
             android:name=".RegisterFromLoginActivity"
             android:exported="false"
             android:label="@string/Register"
-            android:theme="@style/Theme.RubbishApp.RegisterActivity"
-            android:parentActivityName=".LoginActivity" />
+            android:parentActivityName=".LoginActivity"
+            android:theme="@style/Theme.RubbishApp.RegisterActivity" />
         <activity
             android:name=".editProfile"
             android:exported="false"
             android:label="@string/EditProfile"
-            android:theme="@style/Theme.RubbishApp.EditProfileActivity"
-            android:parentActivityName=".ProfilePage" />
+            android:parentActivityName=".ProfilePage"
+            android:theme="@style/Theme.RubbishApp.EditProfileActivity" />
         <activity
             android:name=".ProfilePage"
             android:exported="false"

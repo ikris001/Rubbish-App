@@ -9,21 +9,18 @@
     tools:context=".ContactSupport">
 
 
-
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/moreButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="-11dp"
-        android:layout_marginRight="-6dp"
-        android:onClick="openCloseNavigationDrawer3"
-        android:text=""
-        app:backgroundTint="#A39E79"
-        app:icon="@drawable/abc_vector_test"
-        app:iconTint="#020202"
-        tools:ignore="OnClick" />
+        android:fontFamily="@font/amasis_mt_bold"
+        android:onClick="openCloseNavigationDrawer4"
+        android:text="More"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/signature_green"
+        tools:ignore="MissingConstraints,OnClick" />
 
     <TextView
         android:id="@+id/textview3"

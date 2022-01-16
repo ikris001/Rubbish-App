@@ -6,7 +6,21 @@
     android:layout_height="match_parent"
     android:background="@color/signature_green"
     android:theme="@style/Theme.RubbishApp.EditProfileActivity"
-    tools:context=".EditProfile">
+    tools:context=".editProfile">
+
+
+    <Button
+        android:id="@+id/moreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:fontFamily="@font/amasis_mt_bold"
+        android:onClick="openCloseNavigationDrawer4"
+        android:text="More"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/signature_green"
+        tools:ignore="MissingConstraints,OnClick" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout2"
