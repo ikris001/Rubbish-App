@@ -3,38 +3,47 @@ package com.example.rubbishapp
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Location
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Looper
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.CameraPosition
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_maps.*
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.maps.model.*
+import java.util.*
+import java.util.concurrent.TimeUnit
+
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     lateinit var toggle: ActionBarDrawerToggle
-    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var locationRequest: LocationRequest
+    private lateinit var locationCallback: LocationCallback
+    private var currentLocation: Location? = null
+    lateinit var markerLocation:Marker
 
     fun openCloseNavigationDrawer1(view: View) {
         val nv_email = findViewById<View>(R.id.nav_header_user_email) as TextView
@@ -55,11 +64,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -159,8 +167,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        markerLocation = mMap.addMarker(MarkerOptions().position(LatLng(0.0, 0.0)).icon(BitmapDescriptorFactory.fromResource(R.drawable.here)))
 
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -172,17 +181,29 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             Toast.makeText(this, "Location access denied", Toast.LENGTH_SHORT).show()
             ActivityCompat.requestPermissions(this, arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION), 1)
         }
-        fusedLocationClient.lastLocation
-            .addOnSuccessListener {
-                    location->
-                if (location != null) {
-                    val cameraMove:LatLng = LatLng(location.latitude, location.longitude)
-                    mMap.animateCamera(CameraUpdateFactory.newCameraPosition(CameraPosition(cameraMove,20F, 0F, 0F)))
-                }
-                else{
-                    Toast.makeText(this, "Location not retrieved", Toast.LENGTH_SHORT).show()
+
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+        locationRequest = LocationRequest.create().apply {
+            interval = TimeUnit.SECONDS.toMillis(10)
+            fastestInterval = TimeUnit.SECONDS.toMillis(5)
+            maxWaitTime = TimeUnit.SECONDS.toMillis(20)
+
+            priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        }
+        locationCallback = object : LocationCallback() {
+            override fun onLocationResult(locationResult: LocationResult) {
+                super.onLocationResult(locationResult)
+                currentLocation = locationResult.lastLocation
+                val marker:LatLng = LatLng(currentLocation!!.latitude, currentLocation!!.longitude)
+                markerLocation.position = marker
+                if(currentLocation != null) {
+                    val cameraMove: LatLng = LatLng(currentLocation!!.latitude, currentLocation!!.longitude)
+                    mMap.animateCamera(CameraUpdateFactory.newCameraPosition(CameraPosition(cameraMove, 17F, 0F, 0F)))
                 }
             }
+        }
+        fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper())
+
     }
 
 
