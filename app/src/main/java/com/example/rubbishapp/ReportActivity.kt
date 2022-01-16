@@ -36,6 +36,7 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
         val mapFragment = supportFragmentManager
             .findFragmentById(com.example.rubbishapp.R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        auth = FirebaseAuth.getInstance()
 
         val database = FirebaseDatabase.getInstance()
         val path: String = "Users/" + auth.currentUser?.uid.toString()
@@ -53,7 +54,6 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onMapReady(googleMap: GoogleMap) {
-        auth = FirebaseAuth.getInstance()
         mMap = googleMap
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         if (ActivityCompat.checkSelfPermission(
@@ -86,11 +86,11 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
             mMap.addMarker(MarkerOptions().position(it))
         }
         submitAreaButton.setOnClickListener{
-            var tempPoly:Polygon = mMap.addPolygon(
+            val tempPoly:PolygonOptions =
                 PolygonOptions()
                     .strokeColor(R.color.red_area)
                     .fillColor(R.color.red_area_transparent)
-                    .addAll(points))
+                    .addAll(points)
             val database = FirebaseDatabase.getInstance().getReference("Areas")
             points.clear()
             val tempArea = Area("",tempPoly, userTemp, LocalDateTime.now())

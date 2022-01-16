@@ -31,6 +31,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_maps.*
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.maps.model.*
+import com.google.firebase.database.*
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -44,6 +45,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var locationCallback: LocationCallback
     private var currentLocation: Location? = null
     lateinit var markerLocation:Marker
+    var userTemp:User? = User()
 
     fun openCloseNavigationDrawer1(view: View) {
         val nv_email = findViewById<View>(R.id.nav_header_user_email) as TextView
@@ -181,6 +183,26 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             Toast.makeText(this, "Location access denied", Toast.LENGTH_SHORT).show()
             ActivityCompat.requestPermissions(this, arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION), 1)
         }
+
+        val areas:MutableList<Area?> = mutableListOf()
+        val database = FirebaseDatabase.getInstance()
+        val ref: DatabaseReference = database.getReference("Areas")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    for(i in snapshot.children) {
+                        areas.add(i.getValue(Area::class.java))
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {}
+        })
+
+        for(i in areas){
+            mMap.addPolygon(i?.shape)
+        }
+
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         locationRequest = LocationRequest.create().apply {
