@@ -6,5 +6,5 @@ import java.time.LocalDateTime
 data class Area(
     val id:String,
     val shape:Polygon,
-    val reportedBy:String,
+    val reportedBy:User?,
     val dateTime:LocalDateTime)

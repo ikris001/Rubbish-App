@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_report.*
 import com.google.android.gms.common.api.GoogleApi
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -19,6 +18,7 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import java.time.LocalDateTime
 
 
@@ -27,6 +27,8 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
     private lateinit var mMap:GoogleMap
     var points:MutableList<LatLng> = mutableListOf()
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+    lateinit var auth: FirebaseAuth
+    var userTemp:User? = User()
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -34,10 +36,24 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
         val mapFragment = supportFragmentManager
             .findFragmentById(com.example.rubbishapp.R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        val database = FirebaseDatabase.getInstance()
+        val path: String = "Users/" + auth.currentUser?.uid.toString()
+        val ref: DatabaseReference = database.getReference(path)
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    userTemp= snapshot.getValue(User::class.java)
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {}
+        })
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onMapReady(googleMap: GoogleMap) {
+        auth = FirebaseAuth.getInstance()
         mMap = googleMap
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         if (ActivityCompat.checkSelfPermission(
@@ -52,11 +68,11 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
             ActivityCompat.requestPermissions(this, arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION), 1)
         }
         fusedLocationClient.lastLocation
-            .addOnSuccessListener {
-                    location->
-                if (location != null) {
-                    val cameraMove:LatLng = LatLng(location.latitude, location.longitude)
-                    mMap.animateCamera(CameraUpdateFactory.newCameraPosition(CameraPosition(cameraMove,20F, 0F, 0F)))
+                        .addOnSuccessListener {
+                                location->
+                            if (location != null) {
+                                val cameraMove:LatLng = LatLng(location.latitude, location.longitude)
+                                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(CameraPosition(cameraMove,20F, 0F, 0F)))
                 }
                 else{
                     Toast.makeText(this, "Location not retrieved", Toast.LENGTH_SHORT).show()
@@ -77,7 +93,7 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
                     .addAll(points))
             val database = FirebaseDatabase.getInstance().getReference("Areas")
             points.clear()
-            val tempArea:Area = Area("",tempPoly, FirebaseAuth.getInstance().currentUser?.uid.toString(), LocalDateTime.now())
+            val tempArea = Area("",tempPoly, userTemp, LocalDateTime.now())
             database.push().setValue(tempArea).addOnFailureListener {
                 Toast.makeText(this,"An error occurred. Try again...", Toast.LENGTH_SHORT).show()
             }
