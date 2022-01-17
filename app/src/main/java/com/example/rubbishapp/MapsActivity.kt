@@ -170,7 +170,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        markerLocation = mMap.addMarker(MarkerOptions().position(LatLng(0.0, 0.0)).icon(BitmapDescriptorFactory.fromResource(R.drawable.here)))
+        markerLocation = mMap.addMarker(MarkerOptions().position(LatLng(-89.0, 0.0)).icon(BitmapDescriptorFactory.fromResource(R.drawable.here)))
 
 
         if (ActivityCompat.checkSelfPermission(
