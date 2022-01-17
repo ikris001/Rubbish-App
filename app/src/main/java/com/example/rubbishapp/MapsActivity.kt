@@ -99,11 +99,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 R.id.nav_home -> {
                     startActivity(Intent(this, MapsActivity::class.java))
                 }
-                R.id.nav_login -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Login",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.nav_logout -> {
+                    startActivity(Intent(this, LoginActivity::class.java))
+                }
                 R.id.nav_report -> {
                     startActivity(Intent(this, ReportActivity::class.java))
                 }
