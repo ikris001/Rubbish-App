@@ -73,7 +73,8 @@
             android:name=".ProfilePage"
             android:exported="false"
             android:label="@string/Profile"
-            android:theme="@style/Theme.RubbishApp.ProfileActivity" />
+            android:theme="@style/Theme.RubbishApp.ProfileActivity"
+            android:parentActivityName=".MapsActivity"/>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/Settings"

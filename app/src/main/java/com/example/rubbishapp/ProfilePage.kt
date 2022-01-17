@@ -29,6 +29,12 @@ class ProfilePage : AppCompatActivity() {
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
 
+        // show the title defined in the manifest.xml file
+        actionBar?.setDisplayShowTitleEnabled(true)
+
+        // show the back button the the menu bar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
 
         // switch to edit profile
         editButton.setOnClickListener {
