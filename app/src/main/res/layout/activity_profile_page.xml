@@ -28,37 +28,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/amasis_mt_bold"
+        android:gravity="center"
         android:text="@string/EditProfile"
         android:textColor="@color/black"
         app:backgroundTint="@color/signature_yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerTxt"
-        app:layout_constraintVertical_bias="0.67"
-        android:onClick="openEditProfilePage"/>
+        app:layout_constraintTop_toBottomOf="@+id/scoreTxt"
+        app:layout_constraintVertical_bias="0.306" />
 
     <TextView
         android:id="@+id/usernameTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/amasis_mt"
         android:text="@string/username"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerTxt" />
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/profileImg" />
 
     <ImageView
         android:id="@+id/profileImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerTxt"
+        android:gravity="center"
         tools:src="@tools:sample/avatars"
         android:contentDescription="@string/app_name" />
 
@@ -71,28 +73,32 @@
         android:text="@string/profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/bioTxt"
         android:layout_width="wrap_content"
+        android:maxWidth="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/amasis_mt"
         android:text="@string/description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerTxt" />
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/usernameTxt" />
 
     <TextView
         android:id="@+id/scoreTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="236dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="@font/amasis_mt"
         android:text="@string/score"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerTxt" />
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/bioTxt" />
 </androidx.constraintlayout.widget.ConstraintLayout>

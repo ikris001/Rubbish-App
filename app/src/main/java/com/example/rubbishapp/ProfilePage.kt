@@ -53,7 +53,7 @@ class ProfilePage : AppCompatActivity() {
                 if (snapshot.exists()) {
                     val user: User? = snapshot.getValue(User::class.java)
                     changeProfileInformation(user)
-                    getProfilePicFromDB(user)
+                    getProfilePicFromDB()
                 }
             }
 
@@ -81,16 +81,14 @@ class ProfilePage : AppCompatActivity() {
     }
 
     fun changeProfileInformation(user: User?) {
-        headerTxt.text = user?.username
         usernameTxt.text = user?.username
         bioTxt.text = user?.bio
         scoreTxt.text = user?.score.toString()
     }
 
-    private fun getProfilePicFromDB(user: User?) {
+    private fun getProfilePicFromDB() {
 
-        val imageName = user?.id.toString()
-        val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName.png")
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/profilePic.png")
 
         val localFile = File.createTempFile("prefix","suffix")
         storageRef.getFile(localFile).addOnSuccessListener {

@@ -1,6 +1,7 @@
 package com.example.rubbishapp
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -13,6 +14,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_edit_profile.*
+import kotlinx.android.synthetic.main.activity_profile_page.*
+import java.io.File
 
 class EditProfile : AppCompatActivity() {
 
@@ -22,6 +25,7 @@ class EditProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
+        getProfilePicFromDB()
 
         val toolbar: Toolbar = findViewById(R.id.EditProfile_toolbar)
         setSupportActionBar(toolbar)
@@ -117,5 +121,23 @@ class EditProfile : AppCompatActivity() {
         return when (item.itemId) {
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun getProfilePicFromDB() {
+
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/profilePic.png")
+
+        val localFile = File.createTempFile("prefix","suffix")
+        storageRef.getFile(localFile).addOnSuccessListener {
+
+            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+            profileImg3.setImageBitmap(bitmap)
+
+        }.addOnFailureListener {
+
+            Toast.makeText(this, "Couldn't Find Profile Picture", Toast.LENGTH_SHORT).show()
+
+        }
+
     }
 }
