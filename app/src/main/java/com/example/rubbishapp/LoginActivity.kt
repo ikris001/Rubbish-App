@@ -104,4 +104,6 @@ class LoginActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    override fun onBackPressed() {}
 }

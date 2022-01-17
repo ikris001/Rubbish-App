@@ -39,6 +39,7 @@ import java.util.concurrent.TimeUnit
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+    lateinit var auth: FirebaseAuth
     lateinit var toggle: ActionBarDrawerToggle
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var locationRequest: LocationRequest
@@ -69,6 +70,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
 
+        auth = FirebaseAuth.getInstance()
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -100,6 +102,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     startActivity(Intent(this, MapsActivity::class.java))
                 }
                 R.id.nav_logout -> {
+                    auth.signOut()
                     startActivity(Intent(this, LoginActivity::class.java))
                 }
                 R.id.nav_report -> {
