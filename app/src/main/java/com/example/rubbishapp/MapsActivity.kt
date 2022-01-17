@@ -31,6 +31,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_maps.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -38,16 +39,40 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     lateinit var toggle: ActionBarDrawerToggle
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+    lateinit var auth: FirebaseAuth
 
     fun openCloseNavigationDrawer1(view: View) {
         val nv_email = findViewById<View>(R.id.nav_header_user_email) as TextView
         nv_email.text = FirebaseAuth.getInstance()
             .currentUser!!.email
 
+        // Is the user logged in?
+        auth = FirebaseAuth.getInstance()
 
-        val nv_name = findViewById<View>(R.id.nav_header_user_name) as TextView
-        nv_name.text = FirebaseAuth.getInstance()
-            .currentUser!!.displayName
+        val database = FirebaseDatabase.getInstance()
+        val path: String = "Users/" + auth.currentUser?.uid.toString()
+        val ref: DatabaseReference = database.getReference(path)
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    val user: User? = snapshot.getValue(User::class.java)
+
+                    val nv_email = findViewById<View>(R.id.nav_header_user_email) as TextView
+                    nv_email.text = FirebaseAuth.getInstance()
+                        .currentUser!!.email
+
+                    val nv_name = findViewById<View>(R.id.nav_header_user_name) as TextView
+                    nv_name.text = user?.username
+
+                }
+            }
+
+
+            override fun onCancelled(error: DatabaseError) {}
+        })
+
+
+
 
         if (drawerLayout1.isDrawerOpen(GravityCompat.START)) {
             drawerLayout1.closeDrawer(GravityCompat.START)
