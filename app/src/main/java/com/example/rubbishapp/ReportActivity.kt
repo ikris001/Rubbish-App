@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import kotlinx.android.synthetic.main.activity_report.*
 import com.google.android.gms.common.api.GoogleApi
@@ -34,6 +35,17 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report)
+
+        val toolbar: Toolbar = findViewById(R.id.Report_toolbar)
+        setSupportActionBar(toolbar)
+        val actionBar = supportActionBar
+
+        // show the title defined in the manifest.xml file
+        actionBar?.setDisplayShowTitleEnabled(true)
+
+        // show the back button the the menu bar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
         val mapFragment = supportFragmentManager
             .findFragmentById(com.example.rubbishapp.R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)

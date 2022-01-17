@@ -4,7 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/signature_green">
+    android:theme="@style/Theme.RubbishApp.ReportActivity"
+    android:background="@color/signature_red">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.RubbishApp.ReportMenuBar"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/Report_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/signature_red_darker" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
 
     <fragment
@@ -16,7 +31,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".MapsActivity">
+        tools:context=".MapsActivity"
+        tools:ignore="FragmentTagUsage">
 
     </fragment>
 
@@ -26,8 +42,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/amasis_mt_bold"
-        android:text="Submit"
-        app:backgroundTint="@color/signature_orange"
+        android:text="@string/submit"
+        app:backgroundTint="@color/signature_red"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

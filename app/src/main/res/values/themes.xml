@@ -41,6 +41,10 @@
         <item name="android:textColorPrimary">@color/black</item>
     </style>
 
+    <style name ='Theme.RubbishApp.ReportMenuBar' parent='Theme.AppCompat.Light.DarkActionBar'>
+        <item name="colorPrimary">@color/signature_red</item>
+    </style>
+
     <style name ='Theme.RubbishApp.SettingsMenuBar' parent='Theme.AppCompat.Light.DarkActionBar'>
         <item name="colorPrimary">@color/white</item>
         <item name="android:textColorPrimary">@color/black</item>
@@ -59,6 +63,11 @@
     <style name ='Theme.RubbishApp.MapsActivity' parent='Theme.RubbishApp'>
         <item name="colorPrimary">@color/signature_orange_darker</item>
         <item name="colorPrimaryVariant">@color/signature_orange_darker</item>
+    </style>
+
+    <style name ='Theme.RubbishApp.ReportActivity' parent='Theme.AppCompat.Light.DarkActionBar'>
+        <item name="colorPrimary">@color/signature_red_darker</item>
+        <item name="colorPrimaryVariant">@color/signature_red_darker</item>
     </style>
 
     <style name ='Theme.RubbishApp.ProfileActivity' parent='Theme.RubbishApp'>
