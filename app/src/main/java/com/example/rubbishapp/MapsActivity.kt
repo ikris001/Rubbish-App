@@ -185,14 +185,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             ActivityCompat.requestPermissions(this, arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION), 1)
         }
 
-        var areas:MutableList<Area?> = mutableListOf()
+        var latLng:LatLng
+        var areaPoints:MutableList<LatLng> = mutableListOf()
         val database = FirebaseDatabase.getInstance()
         val ref: DatabaseReference = database.getReference("Areas")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     for(i in snapshot.children) {
-                        areas.add(i.getValue(Area::class.java))
+                        for(k in i.child("shape").child("points").children){
+                            latLng = LatLng(k.child("latitude").getValue(Double::class.java)!!, k.child("longitude").getValue(Double::class.java)!!)
+                            areaPoints.add(latLng)
+                        }
+                        mMap.addPolygon(PolygonOptions().addAll(areaPoints).strokeColor(i.getValue(Area::class.java)?.colourStroke!!).fillColor(i.getValue(Area::class.java)?.colourFill!!))
+                        areaPoints.clear()
+                        //Toast.makeText(this@MapsActivity, ""+i.getValue(Area::class.java)?.shape?.strokeColor, Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -200,10 +207,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             override fun onCancelled(error: DatabaseError) {}
         })
 
-
-        for(i in areas){
-            mMap.addPolygon(i?.shape)
-        }
 
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)

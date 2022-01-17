@@ -2,8 +2,6 @@ package com.example.rubbishapp
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.graphics.Color
-import android.location.Location
 import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
@@ -11,8 +9,8 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_report.*
-import com.google.android.gms.common.api.GoogleApi
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.*
@@ -20,8 +18,6 @@ import com.google.android.gms.maps.model.*
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import java.sql.Time
-import java.time.LocalDateTime
 
 
 class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
@@ -106,7 +102,7 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
                     .addAll(points)
             val database = FirebaseDatabase.getInstance().getReference("Areas")
             points.clear()
-            val tempArea = Area("",tempPoly, userTemp)
+            val tempArea = Area("",tempPoly, userTemp, ContextCompat.getColor(this, R.color.green_area), ContextCompat.getColor(this, R.color.green_area_transparent))
             database.push().setValue(tempArea).addOnFailureListener {
                 Toast.makeText(this,"An error occurred. Try again...", Toast.LENGTH_SHORT).show()
             }
