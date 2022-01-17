@@ -6,7 +6,7 @@ data class User(
     val profilePictureAddress:String,
     val bio:String,
     val role:String,
-    val score:Int) {
+    var score:Int) {
 
     constructor() : this("","","","","",0) {}
 }

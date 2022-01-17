@@ -101,12 +101,14 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
                     .fillColor(R.color.red_area_transparent)
                     .addAll(points)
             mMap.addPolygon(tempPoly)
-            val database = FirebaseDatabase.getInstance().getReference("Areas")
+            var database = FirebaseDatabase.getInstance().getReference("Areas")
             points.clear()
-            val tempArea = Area("",tempPoly, userTemp, ContextCompat.getColor(this, R.color.green_area), ContextCompat.getColor(this, R.color.green_area_transparent))
+            val tempArea = Area("",tempPoly, userTemp!!.id, ContextCompat.getColor(this, R.color.green_area), ContextCompat.getColor(this, R.color.green_area_transparent))
             database.push().setValue(tempArea).addOnFailureListener {
                 Toast.makeText(this,"An error occurred. Try again...", Toast.LENGTH_SHORT).show()
             }
+            database = FirebaseDatabase.getInstance().getReference("Users")
+            database.child(userTemp!!.id).child("score").setValue(userTemp!!.score+1)
         }
     }
 }
