@@ -100,6 +100,7 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
                     .strokeColor(R.color.red_area)
                     .fillColor(R.color.red_area_transparent)
                     .addAll(points)
+            mMap.addPolygon(tempPoly)
             val database = FirebaseDatabase.getInstance().getReference("Areas")
             points.clear()
             val tempArea = Area("",tempPoly, userTemp, ContextCompat.getColor(this, R.color.green_area), ContextCompat.getColor(this, R.color.green_area_transparent))
