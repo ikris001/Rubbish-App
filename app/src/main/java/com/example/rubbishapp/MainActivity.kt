@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
 
                 R.id.nav_home -> Toast.makeText(applicationContext,"Clicked Home", Toast.LENGTH_SHORT).show()
-                R.id.nav_login -> Toast.makeText(applicationContext,"Clicked Login", Toast.LENGTH_SHORT).show()
+                R.id.nav_logout -> Toast.makeText(applicationContext,"Clicked Login", Toast.LENGTH_SHORT).show()
                 R.id.nav_report -> Toast.makeText(applicationContext,"Clicked Report", Toast.LENGTH_SHORT).show()
                 R.id.nav_rate_review -> Toast.makeText(applicationContext,"Clicked Rate review",
                     Toast.LENGTH_SHORT).show()

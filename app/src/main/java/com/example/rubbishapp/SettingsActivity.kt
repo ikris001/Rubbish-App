@@ -78,7 +78,7 @@ class SettingsActivity : AppCompatActivity(),
                 R.id.nav_home -> {
                     startActivity(Intent(this, MapsActivity::class.java))
                 }
-                R.id.nav_login -> Toast.makeText(
+                R.id.nav_logout -> Toast.makeText(
                     applicationContext,
                     "Clicked Login",
                     Toast.LENGTH_SHORT
