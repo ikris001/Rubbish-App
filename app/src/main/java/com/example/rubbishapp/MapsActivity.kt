@@ -197,6 +197,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val ref: DatabaseReference = database.getReference("Areas")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                for(a in displayedPolygons.keys){
+                    a.remove()
+                }
+                displayedPolygons.clear()
                 if (snapshot.exists()) {
                     for(i in snapshot.children) {
                         for(k in i.child("shape").child("points").children){
