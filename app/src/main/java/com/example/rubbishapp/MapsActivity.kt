@@ -225,7 +225,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     database.getReference("Areas").child(displayedPolygons[it]!!).child("colourStroke").setValue(ContextCompat.getColor(this, R.color.yellow_area))
                     database.getReference("Areas").child(displayedPolygons[it]!!).child("colourFill").setValue(ContextCompat.getColor(this, R.color.yellow_area_transparent))
                 }
-                if(it.strokeColor == ContextCompat.getColor(this, R.color.yellow_area)){
+                else if(it.strokeColor == ContextCompat.getColor(this, R.color.yellow_area)){
                     it.strokeColor = ContextCompat.getColor(this, R.color.green_area)
                     it.fillColor = ContextCompat.getColor(this, R.color.green_area_transparent)
                     database.getReference("Areas").child(displayedPolygons[it]!!).child("colourStroke").setValue(ContextCompat.getColor(this, R.color.green_area))
@@ -241,7 +241,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     database.getReference("Areas").child(displayedPolygons[it]!!).child("colourStroke").setValue(ContextCompat.getColor(this, R.color.yellow_area))
                     database.getReference("Areas").child(displayedPolygons[it]!!).child("colourFill").setValue(ContextCompat.getColor(this, R.color.yellow_area_transparent))
                 }
-                if(it.strokeColor == ContextCompat.getColor(this, R.color.yellow_area)){
+                else if(it.strokeColor == ContextCompat.getColor(this, R.color.yellow_area)){
                     it.strokeColor = ContextCompat.getColor(this, R.color.red_area)
                     it.fillColor = ContextCompat.getColor(this, R.color.red_area_transparent)
                     database.getReference("Areas").child(displayedPolygons[it]!!).child("colourStroke").setValue(ContextCompat.getColor(this, R.color.red_area))
@@ -255,7 +255,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             }
             val alertDialog: AlertDialog = dialog.create()
             alertDialog.show()
-
         }
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
