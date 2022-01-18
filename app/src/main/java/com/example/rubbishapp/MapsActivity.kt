@@ -34,6 +34,9 @@ import com.google.android.gms.maps.model.*
 import com.google.firebase.database.*
 import java.util.*
 import java.util.concurrent.TimeUnit
+import android.content.DialogInterface
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -47,6 +50,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var currentLocation: Location? = null
     lateinit var markerLocation:Marker
     var userTemp:User? = User()
+    var displayedPolygons:MutableMap<Polygon,String> = mutableMapOf()
 
     fun openCloseNavigationDrawer1(view: View) {
         val nv_email = findViewById<View>(R.id.nav_header_user_email) as TextView
@@ -168,6 +172,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
 
 
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         markerLocation = mMap.addMarker(MarkerOptions().position(LatLng(-89.0, 0.0)).icon(BitmapDescriptorFactory.fromResource(R.drawable.here)))
@@ -185,6 +190,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             ActivityCompat.requestPermissions(this, arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION), 1)
         }
 
+        var polly:Polygon
         var latLng:LatLng
         var areaPoints:MutableList<LatLng> = mutableListOf()
         val database = FirebaseDatabase.getInstance()
@@ -197,9 +203,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                             latLng = LatLng(k.child("latitude").getValue(Double::class.java)!!, k.child("longitude").getValue(Double::class.java)!!)
                             areaPoints.add(latLng)
                         }
-                        mMap.addPolygon(PolygonOptions().addAll(areaPoints).strokeColor(i.getValue(Area::class.java)?.colourStroke!!).fillColor(i.getValue(Area::class.java)?.colourFill!!))
+                        polly = mMap.addPolygon(PolygonOptions().addAll(areaPoints).strokeColor(i.getValue(Area::class.java)?.colourStroke!!).fillColor(i.getValue(Area::class.java)?.colourFill!!).clickable(true))
+                        displayedPolygons[polly] = i.key!!
                         areaPoints.clear()
-                        //Toast.makeText(this@MapsActivity, ""+i.getValue(Area::class.java)?.shape?.strokeColor, Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -207,7 +213,50 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             override fun onCancelled(error: DatabaseError) {}
         })
 
+        mMap.setOnPolygonClickListener {
+            val dialog =  AlertDialog.Builder(this)
+            dialog.setMessage("Please select if you're cleaning this area or reporting it as dirtier")
+            dialog.setTitle("Dialog Box")
+            dialog.setPositiveButton("Cleaning"
+            ) { dialog, which ->
+                if(it.strokeColor == ContextCompat.getColor(this, R.color.red_area)){
+                    it.strokeColor = ContextCompat.getColor(this, R.color.yellow_area)
+                    it.fillColor = ContextCompat.getColor(this, R.color.yellow_area_transparent)
+                    database.getReference("Areas").child(displayedPolygons[it]!!).child("colourStroke").setValue(ContextCompat.getColor(this, R.color.yellow_area))
+                    database.getReference("Areas").child(displayedPolygons[it]!!).child("colourFill").setValue(ContextCompat.getColor(this, R.color.yellow_area_transparent))
+                }
+                if(it.strokeColor == ContextCompat.getColor(this, R.color.yellow_area)){
+                    it.strokeColor = ContextCompat.getColor(this, R.color.green_area)
+                    it.fillColor = ContextCompat.getColor(this, R.color.green_area_transparent)
+                    database.getReference("Areas").child(displayedPolygons[it]!!).child("colourStroke").setValue(ContextCompat.getColor(this, R.color.green_area))
+                    database.getReference("Areas").child(displayedPolygons[it]!!).child("colourFill").setValue(ContextCompat.getColor(this, R.color.green_area_transparent))
+                }
+                database.getReference("Users").child(userTemp!!.id).child("score").setValue(userTemp!!.score+1)
+            }
+            dialog.setNegativeButton("Reporting"
+            ) { dialog, which ->
+                if(it.strokeColor == ContextCompat.getColor(this, R.color.green_area)){
+                    it.strokeColor = ContextCompat.getColor(this, R.color.yellow_area)
+                    it.fillColor = ContextCompat.getColor(this, R.color.yellow_area_transparent)
+                    database.getReference("Areas").child(displayedPolygons[it]!!).child("colourStroke").setValue(ContextCompat.getColor(this, R.color.yellow_area))
+                    database.getReference("Areas").child(displayedPolygons[it]!!).child("colourFill").setValue(ContextCompat.getColor(this, R.color.yellow_area_transparent))
+                }
+                if(it.strokeColor == ContextCompat.getColor(this, R.color.yellow_area)){
+                    it.strokeColor = ContextCompat.getColor(this, R.color.red_area)
+                    it.fillColor = ContextCompat.getColor(this, R.color.red_area_transparent)
+                    database.getReference("Areas").child(displayedPolygons[it]!!).child("colourStroke").setValue(ContextCompat.getColor(this, R.color.red_area))
+                    database.getReference("Areas").child(displayedPolygons[it]!!).child("colourFill").setValue(ContextCompat.getColor(this, R.color.red_area_transparent))
+                }
+                database.getReference("Users").child(userTemp!!.id).child("score").setValue(userTemp!!.score+1)
+            }
+            dialog.setNeutralButton("Cancel"
+            ) { dialog, which ->
 
+            }
+            val alertDialog: AlertDialog = dialog.create()
+            alertDialog.show()
+
+        }
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         locationRequest = LocationRequest.create().apply {
