@@ -14,9 +14,17 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_register_from_login.*
+
+/**
+ * @author Suleiman Sabo Muhammad
+ * RegisterFromLogin class that takes use data and register it on the database
+ * @see activity_register_from_login.xml
+ */
+
+
+
 
 class RegisterFromLoginActivity : AppCompatActivity() {
     private lateinit var usernameRegister : EditText
@@ -41,23 +49,30 @@ class RegisterFromLoginActivity : AppCompatActivity() {
         var database = FirebaseDatabase.getInstance().getReference("Users")
 
 
-        // Register User
+        /**
+         *  This function is triggered when a user clicked the enter button on the register activity
+         *  and some requirement checks are done before registering the user.
+         *
+         */
+
 
         enterButtonRegister.setOnClickListener {
             when {
+                // checks to see if the email field is empty
                 TextUtils.isEmpty(email.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@RegisterFromLoginActivity, "Please enter email.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-
+                // checks to see if the password field is empty
                 TextUtils.isEmpty(passwordRegister.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@RegisterFromLoginActivity, "Please enter password.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+                // checks to see if the passwords matched is empty
                 !TextUtils.equals(passwordRegister.text.toString(),
                                  confirmPasswordRegister.text.toString()) -> {
                     Toast.makeText(
