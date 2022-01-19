@@ -19,6 +19,14 @@ import com.google.android.gms.maps.model.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
+/**
+ * ReportActivity class that displays a map and lets you select points on it which are converted into
+ * a shape and then recorded as an area that needs cleaning.
+ *
+ * @author Kristiyan Iliev
+ * @property mMap links to the displayed map
+ * @see activity_report linked view to this activity
+ */
 
 class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
 
@@ -28,6 +36,10 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
     lateinit var auth: FirebaseAuth
     var userTemp:User? = User()
 
+    /**
+     * Method is triggered when activity starts. It is used to load the map and create the link to
+     * the firebase and retrieve the user that is currently reporting.
+     */
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report)
@@ -61,6 +73,14 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
         })
     }
 
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * The user is asked for location permission and the camera gets moved to the location of the
+     * user. If the map is clicked, the location of the click gets recorded and a marker is
+     * displayed. Once the submit button is clicked, the points are converted into a shape and sent
+     * to the database.
+     */
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap

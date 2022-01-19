@@ -32,11 +32,18 @@ import kotlinx.android.synthetic.main.activity_maps.*
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.maps.model.*
 import com.google.firebase.database.*
-import java.util.*
 import java.util.concurrent.TimeUnit
-import android.content.DialogInterface
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+
+/**
+ * MapsActivity class that displays your position on a map and lets you see reported areas and
+ * either clean them or report them as dirtier.
+ *
+ * @author Kristiyan Iliev
+ * @property mMap links to the displayed map
+ * @see activity_maps.xml linked view to this activity
+ */
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -52,6 +59,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     var userTemp:User? = User()
     var displayedPolygons:MutableMap<Polygon,String> = mutableMapOf()
 
+    /**
+     * This method is used to open or hide the navigation bar to the left.
+     */
     fun openCloseNavigationDrawer1(view: View) {
         val nv_email = findViewById<View>(R.id.nav_header_user_email) as TextView
         nv_email.text = FirebaseAuth.getInstance()
@@ -69,21 +79,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-
+    /**
+     * Method is triggered when activity starts. It is used to link the navigation bar's buttons to
+     * different activities in the application, to load the map and create the link to the firebase.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
 
         auth = FirebaseAuth.getInstance()
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
-//        // overlays the toolbar on the screen
-//        val toolbar: Toolbar = findViewById(R.id.Map_toolbar)
-//        setSupportActionBar(toolbar)
 
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout1)
@@ -141,17 +149,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             true
         }
     }
+
+    /**
+     * Inflate the menu; this adds items to the action bar if it is present.
+     */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.map_toolbar, menu)
         return true
     }
 
-
+    /**
+     * Handle action bar item clicks here. The action bar will automatically handle clicks on the
+     * Home/Up button, so long as you specify a parent activity in AndroidManifest.xml.
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             else -> super.onOptionsItemSelected(item)
         }
@@ -160,19 +171,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
     /**
-
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-
+     * The user is asked for location permission, the areas are loaded on the map, and the camera
+     * gets moved to the location of the user. If an area is clicked, it gives you the option to
+     * either report it as dirtier or clean it.
      */
-
-
-
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         markerLocation = mMap.addMarker(MarkerOptions().position(LatLng(-89.0, 0.0)).icon(BitmapDescriptorFactory.fromResource(R.drawable.here)))
