@@ -13,6 +13,13 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 
+/**
+ * @author Suleiman Sabo Muhammad
+ * LoginActivity class checks users details from the database to see if they have been registered
+ * allowing them access if details are found
+ * @see activity_register.xml
+ */
+
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,17 +27,22 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
         imageView.setImageResource(R.drawable.logo)
 
-        // login user
+        /**
+         *  checks user email and password  to see if it is already saved on the database
+         *  allowing them access to the application if
+         *
+         */
 
         enterButton.setOnClickListener {
             when {
+                // checks to see if the email field is empty
                 TextUtils.isEmpty(loginEmail.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@LoginActivity, "Please enter email.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-
+                // checks to see if the password field is empty
                 TextUtils.isEmpty(password.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@LoginActivity, "Please enter password.",
@@ -41,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
                     val email = loginEmail.text.toString().trim { it <= ' ' }
                     val password = password.text.toString().trim { it <= ' ' }
 
-                    // create an instance and register a user with email and password
+                    // create an instance and login a user with email and password
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(
                             OnCompleteListener<AuthResult>{ task ->
@@ -78,9 +90,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-
-
-        // switch between activities register and login
+        /**
+         *  takes user to the register activity when clicked
+         */
         registerHereButton.setOnClickListener { val intent = Intent(this, RegisterFromLoginActivity::class.java)
             startActivity(intent)
         }
