@@ -65,12 +65,18 @@ class ProfilePage : AppCompatActivity() {
         actionBar?.setDisplayShowTitleEnabled(true)
     }
 
+    /**
+     * This method is used to display the toolbar at the top of the activity.
+     */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.profile_toolbar, menu)
         return true
     }
 
+    /**
+     * This method is used to handle the clicks on the toolbar.
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -80,12 +86,19 @@ class ProfilePage : AppCompatActivity() {
         }
     }
 
+    /**
+     * This method is usd to change the users information on the page.
+     */
     fun changeProfileInformation(user: User?) {
         usernameTxt.text = user?.username
         bioTxt.text = user?.bio
         scoreTxt.text = user?.score.toString()
     }
 
+    /**
+     * This method is used to get the profile picture from the firebase database
+     * and display the picture in the ImageView holder.
+     */
     private fun getProfilePicFromDB() {
 
         val storageRef = FirebaseStorage.getInstance().reference.child("images/profilePic.png")

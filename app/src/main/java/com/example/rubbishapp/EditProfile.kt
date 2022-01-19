@@ -106,14 +106,18 @@ class EditProfile : AppCompatActivity() {
         database.child("$userId/bio").setValue(NewBio)
     }
 
-    fun changeProfilePicture(){}
-
+    /**
+     * This method is used to display the toolbar at the top of the activity.
+     */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.edit_profile_toolbar, menu)
         return true
     }
 
+    /**
+     * This method is used to handle the clicks on the toolbar.
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -123,6 +127,10 @@ class EditProfile : AppCompatActivity() {
         }
     }
 
+    /**
+     * This method is used to get the profile picture from the firebase database
+     * and display the picture in the ImageView holder.
+     */
     private fun getProfilePicFromDB() {
 
         val storageRef = FirebaseStorage.getInstance().reference.child("images/profilePic.png")

@@ -112,16 +112,6 @@ class RegisterFromLoginActivity : AppCompatActivity() {
             }
         }
 
-
-//        enterButtonRegister.setOnClickListener {
-//            if (passwordRegister.text.toString() == confirmPasswordRegister.text.toString()) {
-//                val user = User(9, usernameRegister.text.toString(), passwordRegister.text.toString(),
-//                email.text.toString(),"","","User",0)
-//                createUserInDB(user, usersTable)
-//            }
-//        }
-
-
         val toolbar: Toolbar = findViewById(R.id.RegisterFromLogin_toolbar)
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
@@ -133,12 +123,18 @@ class RegisterFromLoginActivity : AppCompatActivity() {
         actionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
+    /**
+     * This method is used to display the toolbar at the top of the activity.
+     */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.registerfromlogin_toolbar, menu)
         return true
     }
 
+    /**
+     * This method is used to handle the clicks on the toolbar.
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -147,14 +143,5 @@ class RegisterFromLoginActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-//    private fun createUserInDB(user: User, database: DatabaseReference) {
-//        // connects to the DB and creates/overrides the user with the same user.username
-//        database.child(user.username).setValue(user).addOnSuccessListener {
-//            Toast.makeText(this,"Woo-hoo It's Done :)", Toast.LENGTH_SHORT).show()
-//        }.addOnFailureListener {
-//            Toast.makeText(this,"Oh No It's not done :(",Toast.LENGTH_SHORT).show()
-//        }
-//    }
 
 }
