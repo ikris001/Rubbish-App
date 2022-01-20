@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".feedback"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/mainBackground">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -23,7 +24,7 @@
             android:id="@+id/feedback_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/signature_red_darker"
+            android:background="@color/toolbar_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:title="Feedback"/>
@@ -85,6 +86,8 @@
             android:text="SEND"
             android:id="@+id/sendBtn"
             android:textSize="26sp"
+            android:textColor="@color/mainText"
+            android:backgroundTint="@color/toolbar_color"
             android:layout_margin="26dp"/>
 
 
