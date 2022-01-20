@@ -35,5 +35,6 @@ How to install
 1) Open android studio or your chosen IDE
 2) Load the rubbish app project
 3) Setup android simulator or your android device with android studio
-4) Build the project 
-5) Run the app on your simulator or device.
+4) Sync the gradle dependencies
+5) Build the project 
+6) Run the app on your simulator or device.
