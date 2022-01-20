@@ -1,3 +1,10 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FileName: feedback.kt
+//FileType: Kotlin class
+//Author : Reem Alnashrey
+//Copy Rights : CSC2033 (Team 28)
+//Description : Class to allow users to send us email.
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 package com.example.rubbishapp
 
 import android.content.Intent
@@ -8,6 +15,7 @@ import android.view.LayoutInflater
 import android.widget.Toast
 import com.example.rubbishapp.databinding.ActivityFeedbackBinding
 import com.example.rubbishapp.databinding.ActivityMainBinding
+
 
 class feedback : AppCompatActivity() {
 
