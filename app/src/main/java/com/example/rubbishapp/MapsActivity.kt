@@ -67,10 +67,33 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         nv_email.text = FirebaseAuth.getInstance()
             .currentUser!!.email
 
+        // Is the user logged in?
+        auth = FirebaseAuth.getInstance()
 
-        val nv_name = findViewById<View>(R.id.nav_header_user_name) as TextView
-        nv_name.text = FirebaseAuth.getInstance()
-            .currentUser!!.displayName
+        val database = FirebaseDatabase.getInstance()
+        val path: String = "Users/" + auth.currentUser?.uid.toString()
+        val ref: DatabaseReference = database.getReference(path)
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    val user: User? = snapshot.getValue(User::class.java)
+
+                    val nv_email = findViewById<View>(R.id.nav_header_user_email) as TextView
+                    nv_email.text = FirebaseAuth.getInstance()
+                        .currentUser!!.email
+
+                    val nv_name = findViewById<View>(R.id.nav_header_user_name) as TextView
+                    nv_name.text = user?.username
+
+                }
+            }
+
+
+            override fun onCancelled(error: DatabaseError) {}
+        })
+
+
+
 
         if (drawerLayout1.isDrawerOpen(GravityCompat.START)) {
             drawerLayout1.closeDrawer(GravityCompat.START)
@@ -78,6 +101,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             drawerLayout1.openDrawer(GravityCompat.START)
         }
     }
+
 
     /**
      * Method is triggered when activity starts. It is used to link the navigation bar's buttons to
