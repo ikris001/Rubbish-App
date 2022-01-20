@@ -8,22 +8,13 @@
             android:title="Signature"
             android:summary="your signature"
             app:useSimpleSummaryProvider="true"/>
-        <CheckBoxPreference
-            android:key="checkbox"
-            app:defaultValue="false"
-            android:summary="Tap to check if on or off"
-            android:title="Checkbox Preference"/>
 
 
     </PreferenceCategory>
 
     <PreferenceCategory app:title="Basics">
 
-        <SwitchPreferenceCompat
-            app:key="switch"
-            app:defaultValue="true"
-            app:summary="click to switch on or off"
-            app:title="Switch Preference" />
+
         <ListPreference
             app:defaultValue="@string/dark_mode_def_value"
             app:entries="@array/dark_mode_entries"
@@ -31,13 +22,6 @@
             app:key="@string/dark_mode"
             app:title="@string/dark_mode"
             app:useSimpleSummaryProvider="true" />
-        <ListPreference
-            android:dialogTitle="Select duration"
-            android:entries="@array/settings_list_preference_titles"
-            android:entryValues="@array/settings_list_preference_values"
-            android:key="list"
-            android:summary="Click to show a list to choose from"
-            android:title="List Preference" />
 
         <Preference
             android:summary="Click here to see our Privacy Policy"
