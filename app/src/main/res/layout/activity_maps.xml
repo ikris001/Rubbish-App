@@ -38,7 +38,7 @@
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="1dp"
-            android:background="@color/mainBackground">
+            android:background="@color/toolbar_color">
 
 
             <Button
@@ -54,7 +54,7 @@
                 android:fontFamily="@font/amasis_mt_bold"
                 android:text="Menu"
                 android:textColor="@color/mainText"
-                android:background="@color/mainBackground"
+                android:backgroundTint="@color/mainBackground"
                 >
 
             </Button>
