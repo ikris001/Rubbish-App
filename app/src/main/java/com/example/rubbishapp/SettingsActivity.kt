@@ -90,25 +90,17 @@ class SettingsActivity : AppCompatActivity(),
             val pref = sharedPreferences?.getString(key, "1")
 
             when (pref?.toInt()) {
-                1 -> {
-                    AppCompatDelegate
-                        .setDefaultNightMode(
-                            AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-                        )
-                }
 
-                2 -> AppCompatDelegate
+
+                1 -> AppCompatDelegate
                     .setDefaultNightMode(
                         AppCompatDelegate.MODE_NIGHT_NO
                     )
-                3 -> AppCompatDelegate
+                2-> AppCompatDelegate
                     .setDefaultNightMode(
                         AppCompatDelegate.MODE_NIGHT_YES
                     )
-                4 -> AppCompatDelegate
-                    .setDefaultNightMode(
-                        AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
-                    )
+
             }
         }
 
