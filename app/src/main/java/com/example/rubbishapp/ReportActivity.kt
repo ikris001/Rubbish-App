@@ -46,13 +46,13 @@ class ReportActivity : AppCompatActivity(), OnMapReadyCallback{
 
         val toolbar: Toolbar = findViewById(R.id.Report_toolbar)
         setSupportActionBar(toolbar)
-        val actionBar = supportActionBar
+        val actionBar1 = supportActionBar
 
         // show the title defined in the manifest.xml file
-        actionBar?.setDisplayShowTitleEnabled(true)
+        actionBar1?.setDisplayShowTitleEnabled(true)
 
         // show the back button the the menu bar
-        actionBar?.setDisplayHomeAsUpEnabled(true)
+        actionBar1?.setDisplayHomeAsUpEnabled(true)
 
         val mapFragment = supportFragmentManager
             .findFragmentById(com.example.rubbishapp.R.id.map) as SupportMapFragment

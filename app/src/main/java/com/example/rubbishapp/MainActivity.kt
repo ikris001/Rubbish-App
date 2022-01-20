@@ -1,3 +1,10 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FileName: MainActivity.kt
+//FileType: Kotlin class
+//Author : Reem Alnashrey
+//Copy Rights : CSC2033 (Team 28)
+//Description : Class for our nav menu bar
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 package com.example.rubbishapp
 
 import android.os.Bundle
@@ -11,6 +18,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 

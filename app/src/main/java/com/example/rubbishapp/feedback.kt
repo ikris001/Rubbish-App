@@ -1,3 +1,10 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FileName: feedback.kt
+//FileType: Kotlin class
+//Author : Reem Alnashrey
+//Copy Rights : CSC2033 (Team 28)
+//Description : Class to allow users to send us email.
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 package com.example.rubbishapp
 
 import android.content.Intent
@@ -6,8 +13,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.example.rubbishapp.databinding.ActivityFeedbackBinding
 import com.example.rubbishapp.databinding.ActivityMainBinding
+
 
 class feedback : AppCompatActivity() {
 
@@ -20,6 +29,17 @@ class feedback : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFeedbackBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        val toolbar: Toolbar = findViewById(R.id.feedback_toolbar)
+        setSupportActionBar(toolbar)
+        val actionBar1 = supportActionBar
+
+        // show the title defined in the manifest.xml file
+        actionBar1?.setDisplayShowTitleEnabled(true)
+
+        // show the back button the the menu bar
+        actionBar1?.setDisplayHomeAsUpEnabled(true)
 
 
         binding.sendBtn.setOnClickListener {

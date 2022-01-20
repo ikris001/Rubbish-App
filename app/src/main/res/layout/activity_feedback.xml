@@ -3,69 +3,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".feedback"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="59dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="To:"
-        android:textColor="@color/black"
-        android:textSize="26sp"
-        android:textStyle="bold" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/emailAddress"
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:hint="Email Address" />
+        android:theme="@style/Theme.RubbishApp"
+        tools:ignore="MissingConstraints">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/subject"
-        android:textColor="@color/black"
-        android:layout_margin="16dp"
-        android:textSize="26sp"
-        android:textStyle="bold"/>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/feedback_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/signature_red_darker"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Feedback"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/subject"
-        android:layout_marginHorizontal="16dp"
-        android:hint="@string/subject"/>
+        <TextView
+            android:layout_width="59dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="To:"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/message"
-        android:textColor="@color/black"
-        android:layout_margin="16dp"
-        android:textSize="26sp"
-        android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/emailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:hint="Email Address" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Message"
-        android:layout_marginHorizontal="16dp"
-        android:hint="Type your message.. "
-        android:lines="10"
-        android:gravity="start"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subject"
+            android:textColor="@color/black"
+            android:layout_margin="16dp"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/subject"
+            android:layout_marginHorizontal="16dp"
+            android:hint="@string/subject"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/message"
+            android:textColor="@color/black"
+            android:layout_margin="16dp"
+            android:textSize="26sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Message"
+            android:layout_marginHorizontal="16dp"
+            android:hint="Type your message.. "
+            android:lines="10"
+            android:gravity="start"/>
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:text="SEND"
-        android:id="@+id/sendBtn"
-        android:textSize="26sp"
-        android:layout_margin="26dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="SEND"
+            android:id="@+id/sendBtn"
+            android:textSize="26sp"
+            android:layout_margin="26dp"/>
 
 
 
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
