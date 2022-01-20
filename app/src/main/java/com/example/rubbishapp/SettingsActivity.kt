@@ -57,7 +57,8 @@ class SettingsActivity : AppCompatActivity(),
         // show the back button the the menu bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        // nav menu
+        PreferenceManager.getDefaultSharedPreferences(this)
+            .registerOnSharedPreferenceChangeListener(this)
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {

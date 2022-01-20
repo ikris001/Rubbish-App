@@ -2,8 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.RubbishApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/signature_green</item>
-        <item name="colorPrimaryDark">@color/black</item>
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+<!--      //  <item name="colorPrimary">@color/signature_green</item>-->
+<!--        <item name="colorPrimaryDark">@color/black</item>-->
         <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -78,6 +83,13 @@
     <style name ='Theme.RubbishApp.EditProfileActivity' parent='Theme.RubbishApp'>
         <item name="colorPrimary">@color/signature_green_darker</item>
         <item name="colorPrimaryVariant">@color/signature_green_darker</item>
+    </style>
+
+
+    <style name ='Theme.RubbishApp.SettingsActivity' parent='Theme.AppCompat.Light.DarkActionBar'>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
 </resources>

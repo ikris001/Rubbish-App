@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+
     <color name="colorPrimary">#6C63FF</color>
     <color name="colorPrimaryDark">#2D313D</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="toolbar_color">#FFAF682B</color>
-
-    <color name="mainText">#2D313D</color>
+    <color name="toolbar_color">#373432</color>
+    <color name="mainText">#ffffff</color>
     <color name="textAlt">#8D8F97</color>
 
-    <color name="mainBackground">#FFFF963D</color>
+    <color name="mainBackground">#2D313D</color>
+
 
     <color name="signature_green">#FFDAD876</color>
     <color name="signature_yellow">#FFFFCD60</color>
