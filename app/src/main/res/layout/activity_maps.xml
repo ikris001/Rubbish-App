@@ -7,7 +7,9 @@
     android:id="@+id/drawerLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapsActivity">
+    tools:context=".MapsActivity"
+    android:theme="@style/Theme.RubbishApp"
+    android:background="@color/mainBackground">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,10 +35,11 @@
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/Theme.RubbishApp.MapMenuBar"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="1dp">
+            tools:layout_editor_absoluteY="1dp"
+            android:background="@color/mainBackground">
+
 
             <Button
                 android:id="@+id/moreButton1"
@@ -50,8 +53,9 @@
                 android:onClick="openCloseNavigationDrawer1"
                 android:fontFamily="@font/amasis_mt_bold"
                 android:text="Menu"
-                android:textColor="@color/white"
-                app:backgroundTint="@color/signature_orange">
+                android:textColor="@color/mainText"
+                android:background="@color/mainBackground"
+                >
 
             </Button>
 
@@ -69,6 +73,9 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true" />
+        android:fitsSystemWindows="true"
+        android:background="@color/mainBackground"
+        android:theme="@style/Theme.RubbishApp"
+        />
 
 </androidx.drawerlayout.widget.DrawerLayout>

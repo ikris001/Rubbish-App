@@ -7,9 +7,10 @@
     android:orientation="vertical"
     android:layout_marginTop="16dp"
     android:layout_marginStart="16dp"
-    android:background="#9E9C77"
+    android:background="@color/mainBackground"
     android:layout_marginLeft="16dp"
-    tools:ignore="MissingClass">
+    tools:ignore="MissingClass"
+    android:theme="@style/Theme.RubbishApp">
 
     <ImageView
         android:layout_width="60dp"
@@ -39,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="30dp"
-        android:background="@color/signature_green"/>
+        android:background="@color/colorPrimaryDark"/>
 
 
 
