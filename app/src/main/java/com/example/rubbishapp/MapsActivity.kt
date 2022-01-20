@@ -120,10 +120,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 R.id.nav_report -> {
                     startActivity(Intent(this, ReportActivity::class.java))
                 }
-                R.id.nav_rate_review -> Toast.makeText(
-                    applicationContext, "Clicked Rate review",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.nav_rate_review -> {
+                    startActivity(Intent(this, Rating::class.java))
+                }
                 R.id.nav_feedback -> startActivity(Intent(this, feedback::class.java))
 
 

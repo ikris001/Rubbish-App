@@ -63,6 +63,8 @@
     <string name="close">Close</string>
     <string name="subject" />
     <string name="message" />
+    <string name="submit_rating">Submit Rating</string>
+
 
 
 </resources>
