@@ -6,13 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/signature_yellow"
-    android:theme="@style/Theme.RubbishApp.ProfileActivity"
+    android:theme="@style/Theme.RubbishApp"
     tools:context=".ProfilePage">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.RubbishApp.ProfileMenuBar"
         tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.Toolbar
@@ -30,8 +29,8 @@
         android:fontFamily="@font/amasis_mt_bold"
         android:gravity="center"
         android:text="@string/EditProfile"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/signature_yellow"
+        android:textColor="@color/mainText"
+        app:backgroundTint="@color/toolbar_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"

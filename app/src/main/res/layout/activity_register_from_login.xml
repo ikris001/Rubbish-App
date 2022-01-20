@@ -5,19 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/signature_yellow"
-    android:theme="@style/Theme.RubbishApp.RegisterActivity"
+    android:theme="@style/Theme.RubbishApp"
     tools:context=".RegisterFromLoginActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.RubbishApp.RegisterMenuBar">
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/RegisterFromLogin_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/signature_yellow_darker" />
+            android:background="@color/toolbar_color" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -54,7 +53,7 @@
         android:importantForAutofill="no"
         android:inputType="text"
         android:padding="20dp"
-        android:textColorHint="@color/material_on_surface_emphasis_high_type" />
+        android:textColorHint="@color/mainText" />
 
     <EditText
         android:id="@+id/email"
@@ -71,7 +70,7 @@
         android:fontFamily="@font/amasis_mt"
         android:hint="@string/Email"
         android:padding="20dp"
-        android:textColorHint="@color/material_on_surface_emphasis_high_type"
+        android:textColorHint="@color/mainText"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress" />
 
@@ -91,7 +90,7 @@
         android:importantForAutofill="no"
         android:inputType="textPassword"
         android:padding="20dp"
-        android:textColorHint="@color/material_on_surface_emphasis_high_type" />
+        android:textColorHint="@color/mainText" />
 
     <EditText
         android:id="@+id/confirmPasswordRegister"
@@ -107,7 +106,7 @@
         android:gravity="center"
         android:hint="@string/confirm_password"
         android:padding="20dp"
-        android:textColorHint="@color/material_on_surface_emphasis_high_type"
+        android:textColorHint="@color/mainText"
         android:importantForAutofill="no"
         android:inputType="textPassword" />
 
@@ -126,7 +125,7 @@
         android:fontFamily="@font/amasis_mt"
         android:hint="@string/bio"
         android:padding="20dp"
-        android:textColorHint="@color/material_on_surface_emphasis_high_type"
+        android:textColorHint="@color/mainText"
         android:importantForAutofill="no"
         android:inputType="text" />
 
@@ -146,8 +145,8 @@
         android:fontFamily="@font/amasis_mt_bold"
         android:padding="10dp"
         android:text="@string/enter"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/signature_yellow" />
+        android:textColor="@color/mainText"
+        app:backgroundTint="@color/toolbar_color" />
 
 
 </RelativeLayout>

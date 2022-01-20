@@ -7,18 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".Rating"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:theme="@style/Theme.RubbishApp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/mainBackground">
 
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/Theme.RubbishApp"
             tools:ignore="MissingConstraints">
 
 
@@ -39,10 +40,9 @@
             android:id="@+id/rBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/blue"
+            android:background="@color/toolbar_color"
             android:numStars="4"
             android:stepSize="0.5"
-            android:theme="@style/Widget.AppCompat.RatingBar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
             android:id="@+id/Rating_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/signature_red_darker"
+            android:background="@color/toolbar_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"

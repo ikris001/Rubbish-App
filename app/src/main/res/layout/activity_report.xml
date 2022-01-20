@@ -4,20 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Theme.RubbishApp.ReportActivity"
-    android:background="@color/signature_red">
+    android:theme="@style/Theme.RubbishApp"
+    android:background="@color/mainBackground">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.RubbishApp.ReportMenuBar"
         tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/Report_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/signature_red_darker" />
+            android:background="@color/toolbar_color" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -43,8 +42,8 @@
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/amasis_mt_bold"
         android:text="@string/submit"
-        app:backgroundTint="@color/signature_red"
-        android:textColor="@color/black"
+        app:backgroundTint="@color/toolbar_color"
+        android:textColor="@color/mainText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
