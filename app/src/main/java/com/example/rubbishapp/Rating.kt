@@ -14,6 +14,7 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -59,6 +60,17 @@ class Rating : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rating)
+
+
+        val toolbar: Toolbar = findViewById(R.id.Rating_toolbar)
+        setSupportActionBar(toolbar)
+        val actionBar1 = supportActionBar
+
+        // show the title defined in the manifest.xml file
+        actionBar1?.setDisplayShowTitleEnabled(true)
+
+        // show the back button the the menu bar
+        actionBar1?.setDisplayHomeAsUpEnabled(true)
 
         rBar.setOnRatingBarChangeListener { p0, p1, p2 ->
             Toast.makeText(

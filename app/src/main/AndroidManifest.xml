@@ -17,7 +17,8 @@
         android:theme="@style/Theme.RubbishApp">
         <activity
             android:name=".Rating"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MapsActivity"/>
         <activity
             android:name=".ContactSupport"
             android:exported="false"
