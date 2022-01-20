@@ -40,8 +40,8 @@
             android:title="List Preference" />
 
         <Preference
-            android:summary="-"
-            android:title="Privacy Policy ">
+            android:summary="Click here to see our Privacy Policy"
+            android:title="Privacy Policy">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://sites.google.com/view/rubbishapp-privacy-policy/home"
